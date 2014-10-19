@@ -2,6 +2,7 @@
 
 node default {
 
+  include yum::repo::remi
   include yum::repo::remi_php56
   include mysql::server
   include mysql::server::mysqltuner
@@ -18,6 +19,9 @@ node default {
     'perl-WWW-Curl',
     'php-mcrypt',
     'php-pear',
+    'php-gd',
+    'php-xml',
+    'php-pdo',
     'nmap',
   ]:
     ensure => 'latest',

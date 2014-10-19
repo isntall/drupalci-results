@@ -8,31 +8,62 @@
     <!-- Properties. -->
 
     <property name="app.docroot" value="app" />
-    <property name="composer.bin" value="composer" />
+    <property name="app.dir" value="${project.basedir}/${app.docroot}" />
+    <property name="app.db.url" value="mysql://drupal:drupal@localhost/drupal" />
+    <property name="app.profile" value="standard" />
+    <property name="composer.bin" value="/usr/local/bin/composer" />
     <property name="drush.bin" value="bin/drush" />
+    <property name="drush.cmd" value="${drush.bin} -r ${app.dir}" />
     <property name="drush.make.file" value="results.make" />
 
     <!-- Meta targets. -->
 
     <target name="build"
             description="Build the project and test it."
-            depends="prepare, composer:install, drush:make" />
+            depends="prepare, composer:install, drush:make, drupal:install" />
 
     <!-- Steps targets. -->
 
     <target name="prepare"
             description="Prepare the directories." >
-        <delete dir="${app.docroot}"/>
+        <delete dir="${app.dir}"/>
     </target>
 
     <target name="composer:install"
             description="Install's composer dependencies as provided in composer.json file.">
-      <exec command="${composer.bin} install --prefer-dist --dev --no-progress" logoutput="true" />
+      <exec command="${composer.bin} install --prefer-dist --dev --no-progress"
+            passthru="true"
+            logoutput="true" />
     </target>
 
     <target name="drush:make"
             description="Builds the application based on the drush make file.">
-      <exec command="${drush.bin} make ${drush.make.file} ${app.docroot}" logoutput="true" />
+      <exec command="${drush.bin} make ${drush.make.file} ${app.docroot}"
+            passthru="true"
+            logoutput="true" />
+    </target>
+
+    <target name="drupal:install"
+            description="Install the site with Drush.">
+        <!-- Ensure we have a fresh settings.php with correct permissions -->
+        <exec command="sudo scp ${app.dir}/sites/default/default.settings.php ${app.dir}/sites/default/settings.php"
+              logoutput="true"
+              passthru="true" />
+        <exec command="sudo chmod 777 ${app.dir}/sites/default/settings.php"
+              logoutput="true"
+              passthru="true" />
+
+        <!-- Ensure we have a fresh services.yml with correct permissions -->
+        <exec command="sudo scp ${app.dir}/sites/default/default.services.yml ${app.dir}/sites/default/services.yml"
+              logoutput="true"
+              passthru="true" />
+        <exec command="sudo chmod 777 ${app.dir}/sites/default/services.yml"
+              logoutput="true"
+              passthru="true" />
+
+        <exec command="${drush.cmd} site-install --yes --db-url=${app.db.url} ${app.profile}"
+              passthru="true"
+              logoutput="true" />
     </target>
 
 </project>
