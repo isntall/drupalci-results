@@ -1,0 +1,36 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    example42-puppi (2.1.10)
+    puppetlabs-concat (1.1.1)
+      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
+
+GIT
+  remote: git://github.com/example42/puppet-yum.git
+  ref: v2.1.17
+  sha: bc5af38cf09105733e5e57794cc82244c02e3114
+  specs:
+    example42-yum (2.1.16)
+      example42-puppi (> 2.0.0)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-apache.git
+  ref: d051887078363bb01a060f9c405f2875315d345c
+  sha: d051887078363bb01a060f9c405f2875315d345c
+  specs:
+    puppetlabs-apache (1.1.1)
+      puppetlabs-concat (>= 1.1.1)
+      puppetlabs-stdlib (>= 2.4.0)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-stdlib.git
+  ref: 4.3.2
+  sha: da11903285aca54ac399d66cb453f5a8db3ac355
+  specs:
+    puppetlabs-stdlib (4.3.2)
+
+DEPENDENCIES
+  example42-yum (>= 0)
+  puppetlabs-apache (>= 0)
+  puppetlabs-stdlib (>= 0)
+

@@ -1,0 +1,38 @@
+<!--
+  name: build.xml
+  description: A build file for the Results project.
+-->
+
+<project name="results" default="build" phingVersion="2.4.11">
+
+    <!-- Properties. -->
+
+    <property name="app.docroot" value="app" />
+    <property name="composer.bin" value="composer" />
+    <property name="drush.bin" value="bin/drush" />
+    <property name="drush.make.file" value="results.make" />
+
+    <!-- Meta targets. -->
+
+    <target name="build"
+            description="Build the project and test it."
+            depends="prepare, composer:install, drush:make" />
+
+    <!-- Steps targets. -->
+
+    <target name="prepare"
+            description="Prepare the directories." >
+        <delete dir="${app.docroot}"/>
+    </target>
+
+    <target name="composer:install"
+            description="Install's composer dependencies as provided in composer.json file.">
+      <exec command="${composer.bin} install --prefer-dist --dev --no-progress" logoutput="true" />
+    </target>
+
+    <target name="drush:make"
+            description="Builds the application based on the drush make file.">
+      <exec command="${drush.bin} make ${drush.make.file} ${app.docroot}" logoutput="true" />
+    </target>
+
+</project>
