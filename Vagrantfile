@@ -5,7 +5,7 @@
 #
 
 box      = 'puppetlabs/centos-6.5-64-puppet'
-hostname = 'drupalci-api'
+hostname = 'drupalci-results'
 domain   = 'dev'
 cpus     = '1'
 ram      = '768'
@@ -26,13 +26,13 @@ Vagrant.configure("2") do |config|
   if RUBY_PLATFORM =~ /linux|darwin/
     config.vm.synced_folder(
       ".",
-      "/var/www/api/current",
+      "/var/www/results/current",
       :nfs => true,
       :map_uid => 0,
       :map_gid => 0,
      )
   else
-    config.vm.synced_folder ".", "/var/www/api"
+    config.vm.synced_folder ".", "/var/www/results/current"
   end
 
   # Virtualbox provider configuration.
