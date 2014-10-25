@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "72f312dedbbd95223d65e70a346686ba",
+    "hash": "5f26eba8753deff6371356b0cbe2b3cc",
     "packages": [],
     "packages-dev": [
         {
@@ -43,21 +43,21 @@
         },
         {
             "name": "drush/drush",
-            "version": "7.0.0-alpha5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "a998bb1b36ec24f99df2ff38622c74f6f8f8c269"
+                "reference": "05bacd353bbe1739238e8777cf2137f9c08f70ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/a998bb1b36ec24f99df2ff38622c74f6f8f8c269",
-                "reference": "a998bb1b36ec24f99df2ff38622c74f6f8f8c269",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/05bacd353bbe1739238e8777cf2137f9c08f70ec",
+                "reference": "05bacd353bbe1739238e8777cf2137f9c08f70ec",
                 "shasum": ""
             },
             "require": {
                 "d11wtq/boris": "*",
-                "pear/console_table": "1.1.5",
+                "pear/console_table": "~1.2.0",
                 "php": ">=5.3.0",
                 "symfony/yaml": "~2.2"
             },
@@ -95,7 +95,7 @@
                     "email": "marksonnabaum@gmail.com"
                 },
                 {
-                    "name": "Antoine Beaupr\u00e9",
+                    "name": "Antoine Beaupré",
                     "email": "anarcat@koumbit.org"
                 },
                 {
@@ -103,7 +103,7 @@
                     "email": "greg.1.anderson@greenknowe.org"
                 },
                 {
-                    "name": "Jonathan Ara\u00f1a Cruz",
+                    "name": "Jonathan Araña Cruz",
                     "email": "jonhattan@faita.net"
                 },
                 {
@@ -113,27 +113,27 @@
             ],
             "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
             "homepage": "http://www.drush.org",
-            "time": "2014-09-18 01:32:54"
+            "time": "2014-10-23 19:25:46"
         },
         {
             "name": "pear/console_table",
-            "version": "1.1.5",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/Console_Table.git",
-                "reference": "9f80c91a9fc01a3cce71ae80ea5bd473cb0eba4c"
+                "reference": "b3d88acf17578c9785cda0daf8fce5c69860cb33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/Console_Table/zipball/9f80c91a9fc01a3cce71ae80ea5bd473cb0eba4c",
-                "reference": "9f80c91a9fc01a3cce71ae80ea5bd473cb0eba4c",
+                "url": "https://api.github.com/repos/RobLoach/Console_Table/zipball/b3d88acf17578c9785cda0daf8fce5c69860cb33",
+                "reference": "b3d88acf17578c9785cda0daf8fce5c69860cb33",
                 "shasum": ""
             },
             "require": {
-                "php": ">=4.0.0"
+                "php": ">=4.3.10"
             },
             "suggest": {
-                "pear/Console_Color": ">=0.0.4"
+                "pear/Console_Color2": ">=0.1.2"
             },
             "type": "library",
             "autoload": {
@@ -143,7 +143,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+                "BSD-2-Clause"
             ],
             "authors": [
                 {
@@ -163,12 +163,12 @@
                     "homepage": "http://pear.php.net/user/richard"
                 }
             ],
-            "description": "Class that makes it easy to build console style tables.",
-            "homepage": "https://github.com/pear/Console_Table",
+            "description": "Library that makes it easy to build console style tables.",
+            "homepage": "http://pear.php.net/package/Console_Table/",
             "keywords": [
                 "console"
             ],
-            "time": "2012-12-07 14:43:01"
+            "time": "2014-03-31 20:07:31"
         },
         {
             "name": "symfony/yaml",
@@ -220,7 +220,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drush/drush": 20
+    },
     "prefer-stable": false,
     "platform": [],
     "platform-dev": []

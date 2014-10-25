@@ -18,6 +18,7 @@ node default {
     'php-cli',
     'perl-WWW-Curl',
     'php-mcrypt',
+    'php-mysql',
     'php-pear',
     'php-gd',
     'php-xml',
@@ -45,10 +46,11 @@ node default {
   include apache::mod::php
 
   apache::vhost { $fqdn:
-    docroot          => '/var/www/results/current/app',
-    manage_docroot   => false,
-    priority         => '25',
-    override         => [ 'ALL' ],
+    port           => '80',
+    docroot        => '/var/www/results/current/app',
+    manage_docroot => false,
+    priority       => '25',
+    override       => [ 'ALL' ],
   }
 
   mysql::db { 'drupal':
