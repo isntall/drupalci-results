@@ -1,0 +1,23 @@
+uuid: 1e7bc442-4ba8-48cc-a700-0ba366af976d
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_artefacts
+field_name: field_artefacts
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+  target_bundle: null
+module: file
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+

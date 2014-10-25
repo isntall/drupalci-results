@@ -1,0 +1,23 @@
+uuid: de3c4851-9a99-4952-aa04-4b85a439eaed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary_messag
+    - node.type.result
+id: node.result.field_summary_messag
+field_name: field_summary_messag
+entity_type: node
+bundle: result
+label: 'Summary message'
+description: 'The summary message derived from the artefacts sent to this <em>result</em>.'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string_long
+

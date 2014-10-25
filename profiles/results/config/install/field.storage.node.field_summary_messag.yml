@@ -1,0 +1,18 @@
+uuid: 5e67a56a-849f-4a3d-9a03-3a053fa504cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_summary_messag
+field_name: field_summary_messag
+entity_type: node
+type: string_long
+settings:
+  max_length: 255
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+
