@@ -1,0 +1,40 @@
+uuid: 31045082-ef63-48d5-8d1a-2613db84340a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.result.body
+    - field.field.node.result.field_artefacts
+    - field.field.node.result.field_parameters
+    - field.field.node.result.field_state
+    - field.field.node.result.field_summary_messag
+    - node.type.result
+  module:
+    - options
+    - user
+id: node.result.teaser
+label: null
+targetEntityType: node
+bundle: result
+mode: teaser
+content:
+  field_state:
+    type: list_key
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_summary_messag:
+    type: string
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+hidden:
+  langcode: true
+  field_artefacts: true
+  field_parameters: true
+  body: true
+  links: true
+third_party_settings: {  }

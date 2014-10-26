@@ -1,4 +1,4 @@
-# Changes the default value of the promote base field on the page node type.
+uuid: 3fe9a32f-4ac8-448e-9300-d65c820c95cf
 langcode: en
 status: true
 dependencies:
@@ -17,4 +17,5 @@ default_value:
     value: 0
 default_value_callback: ''
 settings: {  }
+third_party_settings: {  }
 field_type: boolean

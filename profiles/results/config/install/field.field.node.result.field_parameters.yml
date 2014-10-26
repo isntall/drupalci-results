@@ -22,4 +22,3 @@ default_value_callback: ''
 settings: {  }
 third_party_settings: {  }
 field_type: string
-

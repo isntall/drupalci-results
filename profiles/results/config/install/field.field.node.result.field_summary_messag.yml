@@ -15,9 +15,8 @@ required: false
 translatable: false
 default_value:
   -
-    value: ''
+    value: 'Waiting on artefacts to generate results summary.'
 default_value_callback: ''
 settings: {  }
 third_party_settings: {  }
 field_type: string_long
-

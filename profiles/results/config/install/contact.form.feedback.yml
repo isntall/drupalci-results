@@ -1,7 +1,10 @@
+uuid: e4690fc6-33a7-44e2-b000-e2154ee26710
+langcode: en
+status: true
+dependencies: {  }
 id: feedback
 label: 'Website feedback'
 recipients: {  }
 reply: ''
 weight: 0
-status: true
-langcode: en
+third_party_settings: {  }

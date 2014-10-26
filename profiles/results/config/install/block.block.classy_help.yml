@@ -1,0 +1,23 @@
+uuid: a1013e02-2542-41ee-9f05-5c2a735e82e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - classy
+id: classy_help
+theme: classy
+region: help
+weight: 0
+provider: null
+plugin: system_help_block
+settings:
+  visibility: {  }
+  id: system_help_block
+  label: 'System Help'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+    contexts: {  }
