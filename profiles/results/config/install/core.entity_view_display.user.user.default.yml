@@ -1,12 +1,4 @@
-uuid: e496c485-fcd7-46d3-8719-2598fc9b0c05
-langcode: und
-status: true
-dependencies:
-  module:
-    - image
-    - user
 id: user.user.default
-label: null
 targetEntityType: user
 bundle: user
 mode: default
@@ -19,7 +11,8 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-  member_for:
-    weight: 5
-hidden: {  }
-third_party_settings: {  }
+status: true
+dependencies:
+  module:
+    - image
+    - user

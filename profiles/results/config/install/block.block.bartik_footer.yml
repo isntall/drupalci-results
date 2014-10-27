@@ -1,18 +1,9 @@
-uuid: 4e8d5b01-1823-41e8-b900-dd49ccaa712c
-langcode: en
-status: true
-dependencies:
-  config:
-    - system.menu.footer
-  module:
-    - system
-  theme:
-    - bartik
 id: bartik_footer
 theme: bartik
-region: footer
 weight: 0
-provider: null
+status: true
+langcode: en
+region: footer
 plugin: 'system_menu_block:footer'
 settings:
   visibility: {  }
@@ -25,3 +16,10 @@ settings:
     contexts: {  }
   level: 1
   depth: 0
+dependencies:
+  entity:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - bartik

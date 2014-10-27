@@ -1,12 +1,9 @@
-uuid: 3ff8c05f-54bf-4963-823d-610ce5ea49f3
-langcode: en
-status: true
-dependencies:
-  module:
-    - editor
-name: 'Restricted HTML'
 format: restricted_html
+name: 'Restricted HTML'
+status: true
 weight: 0
+roles:
+  - anonymous
 filters:
   filter_html:
     id: filter_html
@@ -36,3 +33,4 @@ filters:
     status: true
     weight: 10
     settings: {  }
+langcode: en

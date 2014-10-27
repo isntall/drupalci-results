@@ -1,12 +1,9 @@
-uuid: 92335fd5-a218-4580-a700-fb992bab4321
-langcode: en
-status: true
-dependencies:
-  module:
-    - editor
-name: 'Full HTML'
 format: full_html
+name: 'Full HTML'
+status: true
 weight: 1
+roles:
+  - administrator
 filters:
   filter_align:
     id: filter_align
@@ -32,3 +29,7 @@ filters:
     status: true
     weight: 11
     settings: {  }
+langcode: en
+dependencies:
+  module:
+    - editor

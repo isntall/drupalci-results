@@ -1,18 +1,10 @@
-uuid: e8cfa097-2c71-4d6a-884a-746059370c59
-langcode: en
-status: true
-dependencies:
-  config:
-    - field.storage.node.field_image
-    - node.type.article
 id: node.article.field_image
-field_name: field_image
 entity_type: node
 bundle: article
+field_name: field_image
 label: Image
 description: ''
 required: false
-translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -31,6 +23,10 @@ settings:
     title: ''
     width: null
     height: null
-  handler: default
-third_party_settings: {  }
+status: true
+langcode: en
 field_type: image
+dependencies:
+  entity:
+    - field.storage.node.field_image
+    - node.type.article

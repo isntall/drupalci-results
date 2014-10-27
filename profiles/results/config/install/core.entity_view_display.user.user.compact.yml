@@ -1,14 +1,4 @@
-uuid: bdd5a49d-5aba-45a6-8f00-e248dd33202a
-langcode: und
-status: true
-dependencies:
-  config:
-    - core.entity_view_mode.user.compact
-  module:
-    - image
-    - user
 id: user.user.compact
-label: null
 targetEntityType: user
 bundle: user
 mode: compact
@@ -23,4 +13,10 @@ content:
     label: hidden
 hidden:
   member_for: true
-third_party_settings: {  }
+status: true
+dependencies:
+  entity:
+    - core.entity_view_mode.user.compact
+  module:
+    - image
+    - user

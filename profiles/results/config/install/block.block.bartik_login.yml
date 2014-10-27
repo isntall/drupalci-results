@@ -1,16 +1,9 @@
-uuid: 6c1ad9e7-0ff1-4021-aa12-18359c96e365
-langcode: en
-status: false
-dependencies:
-  module:
-    - user
-  theme:
-    - bartik
 id: bartik_login
 theme: bartik
-region: '-1'
-weight: -6
-provider: null
+weight: 0
+status: true
+langcode: en
+region: sidebar_first
 plugin: user_login_block
 settings:
   visibility: {  }
@@ -18,6 +11,8 @@ settings:
   label: 'User login'
   provider: user
   label_display: visible
-  cache:
-    max_age: 0
-    contexts: {  }
+dependencies:
+  module:
+    - user
+  theme:
+    - bartik

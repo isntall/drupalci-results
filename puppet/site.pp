@@ -19,6 +19,7 @@ node default {
     'perl-WWW-Curl',
     'php-mcrypt',
     'php-mysql',
+    'php-mbstring',
     'php-pear',
     'php-gd',
     'php-xml',

@@ -1,16 +1,9 @@
-uuid: 2989819c-6e5c-4907-8200-c53f44219150
-langcode: en
-status: false
-dependencies:
-  module:
-    - search
-  theme:
-    - bartik
 id: bartik_search
 theme: bartik
-region: '-1'
-weight: -5
-provider: null
+weight: -1
+status: true
+langcode: en
+region: sidebar_first
 plugin: search_form_block
 settings:
   visibility: {  }
@@ -18,6 +11,8 @@ settings:
   label: Search
   provider: search
   label_display: visible
-  cache:
-    max_age: 0
-    contexts: {  }
+dependencies:
+  module:
+    - search
+  theme:
+    - bartik

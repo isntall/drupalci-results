@@ -1,11 +1,3 @@
-uuid: 2ac56d9f-9309-4e00-bc07-7cdb13266384
-langcode: und
-status: true
-dependencies:
-  config:
-    - node.type.article
-  module:
-    - node
 id: node.article
 targetEntityType: node
 bundle: article
@@ -34,17 +26,22 @@ fieldMappings:
   comment:
     properties:
       - 'schema:comment'
-    mapping_type: rel
+    mapping_type: 'rel'
   comment_count:
     properties:
       - 'schema:interactionCount'
     datatype_callback:
       callable: 'Drupal\rdf\SchemaOrgDataConverter::interactionCount'
       arguments:
-        interaction_type: UserComments
+        interaction_type: 'UserComments'
   field_image:
     properties:
       - 'schema:image'
   field_tags:
     properties:
       - 'schema:about'
+dependencies:
+  entity:
+    - node.type.article
+  module:
+    - node

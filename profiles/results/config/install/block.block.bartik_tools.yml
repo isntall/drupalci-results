@@ -1,18 +1,9 @@
-uuid: 006468f3-fc12-45d9-905f-9500f2a3f3ad
-langcode: en
-status: false
-dependencies:
-  config:
-    - system.menu.tools
-  module:
-    - system
-  theme:
-    - bartik
 id: bartik_tools
 theme: bartik
-region: '-1'
-weight: -4
-provider: null
+weight: 0
+status: true
+langcode: en
+region: sidebar_first
 plugin: 'system_menu_block:tools'
 settings:
   visibility: {  }
@@ -25,3 +16,10 @@ settings:
     contexts: {  }
   level: 1
   depth: 0
+dependencies:
+  entity:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - bartik

@@ -12,11 +12,8 @@ api = 2
 ; Drupal core.
 projects[drupal][download][type] = git
 projects[drupal][download][url] = http://git.drupal.org/project/drupal.git
-projects[drupal][download][branch] = 8.0.x
+projects[drupal][download][tag] = 8.0.0-beta2
 
 ; Contrib modules.
 
-; Custom modules.
-; projects[results][type] = "module"
-; projects[my_module][subdir] = "contrib"
-; projects[results][directory_name] = "modules/results"
+; projects[config_devel][version] = "1.0-alpha14"

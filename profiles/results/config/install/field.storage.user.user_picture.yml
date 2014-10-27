@@ -1,11 +1,6 @@
-uuid: a91c06bb-50be-4563-9700-a20774e17c12
-langcode: en
-status: true
-dependencies:
-  module:
-    - image
-    - user
 id: user.user_picture
+status: true
+langcode: en
 field_name: user_picture
 entity_type: user
 type: image
@@ -17,10 +12,6 @@ settings:
     title: ''
     width: null
     height: null
-  target_type: file
-  display_field: false
-  display_default: false
-  target_bundle: null
 module: image
 locked: false
 cardinality: 1
@@ -28,3 +19,7 @@ translatable: false
 indexes:
   target_id:
     - target_id
+dependencies:
+  module:
+    - image
+    - user
