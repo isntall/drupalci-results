@@ -1,0 +1,27 @@
+uuid: de811c7a-dd93-4554-b437-55792662f2a5
+langcode: en
+status: false
+dependencies:
+  entity:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - drupalci
+id: drupalci_tools
+theme: drupalci
+region: '-1'
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  visibility: {  }
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  cache:
+    max_age: -1
+    contexts: {  }
+  level: 1
+  depth: 0

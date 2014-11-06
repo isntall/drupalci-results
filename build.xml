@@ -60,8 +60,8 @@
           if="drush.cmd"
           description="Run a command in the vagrant host.">
     <exec command="vagrant ssh -c '${vagrant.cmd}'"
-          logoutput="${test.output}"
-          passthru="${test.passthru}" />
+          logoutput="true"
+          passthru="true" />
   </target>
 
   <target name="composer:install"
@@ -77,11 +77,13 @@
           passthru="true"
           logoutput="true" />
 
-    <!-- We also symlink in our modules -->
-    <exec command="rm -fR ${app.docroot}/profiles"
-          passthru="true"
-          logoutput="true" />
-    <exec command="rsync -avz ${project.basedir}/profiles/* ${app.docroot}/profiles" />
+    <!-- We also symlink in our modules, themes and profiles. -->
+    <exec command="rm -fR ${app.docroot}/modules/custom" passthru="true" logoutput="true" />
+    <exec command="rm -fR ${app.docroot}/themes/custom" passthru="true" logoutput="true" />
+    <exec command="rm -fR ${app.docroot}/profiles" passthru="true" logoutput="true" />
+    <symlink target="../../modules" link="${app.dir}/modules/custom" />
+    <symlink target="../../themes" link="${app.dir}/themes/custom" />
+    <symlink target="../profiles" link="${app.dir}/profiles" />
   </target>
 
   <target name="drupal:config:export"

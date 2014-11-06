@@ -1,14 +1,14 @@
-uuid: 4e3ac76e-4499-40ee-8958-886880e25c7a
+uuid: da090a0b-9eb7-446a-b718-243d2d326803
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - user
   theme:
-    - seven
-id: seven_login
-theme: seven
-region: content
+    - stark
+id: stark_login
+theme: stark
+region: '-1'
 weight: 0
 provider: null
 plugin: user_login_block

@@ -1,0 +1,12 @@
+uuid: 21b43c81-9d04-4a24-8e00-a1cff71a9988
+langcode: en
+status: true
+dependencies: {  }
+name: Result
+type: result
+description: 'Build results for your viewing pleasure.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
+third_party_settings: {  }

@@ -1,0 +1,27 @@
+uuid: 8001b147-e91f-46c5-ac00-e0407efa980a
+langcode: en
+status: true
+dependencies:
+  entity:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - drupalci
+id: drupalci_mainnavigation
+theme: drupalci
+region: header
+weight: -2
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  visibility: {  }
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: visible
+  cache:
+    max_age: -1
+    contexts: {  }
+  level: 1
+  depth: 0

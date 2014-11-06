@@ -1,14 +1,14 @@
-uuid: 4e3ac76e-4499-40ee-8958-886880e25c7a
+uuid: ec71de0b-33b2-4d2b-b706-6a1c2063f9dc
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - user
   theme:
-    - seven
-id: seven_login
-theme: seven
-region: content
+    - drupalci
+id: drupalci_login
+theme: drupalci
+region: '-1'
 weight: 0
 provider: null
 plugin: user_login_block

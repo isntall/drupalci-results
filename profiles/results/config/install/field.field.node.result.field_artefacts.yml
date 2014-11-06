@@ -1,0 +1,25 @@
+uuid: 63030526-2fea-4729-aa34-526d259cd90f
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_artefacts
+    - node.type.result
+id: node.result.field_artefacts
+field_name: field_artefacts
+entity_type: node
+bundle: result
+label: Artefacts
+description: 'The files generated from a build.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: artefacts
+  file_extensions: 'txt xml'
+  max_filesize: '20 MB'
+  description_field: false
+  handler: default
+third_party_settings: {  }
+field_type: file

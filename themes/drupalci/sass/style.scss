@@ -1,0 +1,60 @@
+.page-header {
+  margin-top: 0px;
+}
+
+.navbar-brand {
+  .site-slogan {
+    float: left;
+    margin: 2px 10px;
+  }
+  img {
+    float: right;
+  }
+}
+
+.navbar-header {
+  float: right;
+  margin-top: -2px;
+}
+
+.block-menu.menu--main {
+  .menu {
+    margin-bottom: 0;
+
+    li {
+      padding-top: 0;
+      float: left;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.panel-result-teaser {
+  .progress {
+    float: left;
+    width: 86%;
+    margin: 7px;
+  }
+
+  .details-link {
+    float: right;
+  }
+}
+
+.panel-result-tiny {
+  .progress {
+    margin: 7px;
+  }
+
+  .details-link {
+    float: right;
+  }
+}
+
+.field-name-field-artefacts {
+  .field-item {
+    float: left;
+    margin: 10px;
+  }
+}

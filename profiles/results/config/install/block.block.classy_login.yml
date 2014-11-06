@@ -1,14 +1,14 @@
-uuid: 4e3ac76e-4499-40ee-8958-886880e25c7a
+uuid: 953e3d5e-ecf8-46bc-bd51-815702275424
 langcode: en
 status: true
 dependencies:
   module:
     - user
   theme:
-    - seven
-id: seven_login
-theme: seven
-region: content
+    - classy
+id: classy_login
+theme: classy
+region: sidebar_first
 weight: 0
 provider: null
 plugin: user_login_block

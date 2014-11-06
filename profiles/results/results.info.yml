@@ -1,41 +1,30 @@
 name: Results
 type: profile
-description: 'Results for DrupalCI builds.'
+description: 'DrupalCI results site.'
 version: VERSION
 core: 8.x
 dependencies:
-  - node
-  - history
   - block
   - breakpoint
-  - ckeditor
-  - color
   - config
-  - comment
-  - contextual
-  - contact
-  - menu_link_content
-  - datetime
-  - block_content
-  - quickedit
-  - editor
-  - entity_reference
-  - help
-  - image
-  - menu_ui
-  - options
-  - path
-  - taxonomy
   - dblog
-  - search
-  - shortcut
-  - toolbar
+  - field
   - field_ui
-  - file
-  - rdf
+  - filter
+  - node
+  - system
+  - toolbar
+  - update
+  - user
   - views
   - views_ui
-  - tour
+  - entity_reference
+  - file
+  - link
+  - options
+  - text
+  - rest
+  - serialization
 themes:
-  - bartik
   - seven
+  - drupalci

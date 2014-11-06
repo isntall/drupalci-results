@@ -1,0 +1,22 @@
+uuid: 0d136164-c96e-47d6-b356-86f35ee6e51b
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_console
+    - node.type.result
+id: node.result.field_console
+field_name: field_console
+entity_type: node
+bundle: result
+label: Console
+description: 'A link to the console log output. We will use this to stream our builds if one is provided.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: '17'
+  title: '0'
+third_party_settings: {  }
+field_type: link

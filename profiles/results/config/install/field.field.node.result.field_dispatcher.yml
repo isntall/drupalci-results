@@ -1,0 +1,22 @@
+uuid: 170f0cb1-0320-4a85-b21d-2990be857004
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_dispatcher
+    - node.type.result
+id: node.result.field_dispatcher
+field_name: field_dispatcher
+entity_type: node
+bundle: result
+label: Dispatcher
+description: 'A link to the dispatcher build for debugging.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: '17'
+  title: '0'
+third_party_settings: {  }
+field_type: link

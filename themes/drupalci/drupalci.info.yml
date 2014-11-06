@@ -1,0 +1,16 @@
+name: DrupalCI
+type: theme
+description: DrupalCI standard theme
+core: 8.x
+# Defines the base theme
+base theme: classy
+# Load the base css and js.
+libraries:
+  - drupalci/base
+# Regions
+regions:
+  navigation: Navigation
+  header: Header
+  content: Content
+  sidebar: Sidebar
+  footer: Footer

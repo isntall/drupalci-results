@@ -1,0 +1,22 @@
+uuid: c8a89367-8c72-4dc0-951b-2710fdd2929c
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_summary
+    - node.type.result
+id: node.result.field_summary
+field_name: field_summary
+entity_type: node
+bundle: result
+label: Summary
+description: 'A small string that provides information about the build result.'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string

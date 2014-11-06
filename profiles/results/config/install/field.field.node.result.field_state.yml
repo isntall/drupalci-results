@@ -1,0 +1,20 @@
+uuid: 23934582-0bd9-4c8c-933e-62e31c17401b
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_state
+    - node.type.result
+id: node.result.field_state
+field_name: field_state
+entity_type: node
+bundle: result
+label: State
+description: 'The current state of the build.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: list_string

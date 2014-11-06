@@ -1,0 +1,6 @@
+name: Link button
+type: module
+description: 'Link button formatter.'
+package: DrupalCI
+version: VERSION
+core: 8.x

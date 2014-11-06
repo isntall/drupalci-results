@@ -1,0 +1,11 @@
+uuid: c98eb73e-7dc4-46d9-9c00-fbc6ff1ac046
+name: 'DrupalCI Results'
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: latest
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en

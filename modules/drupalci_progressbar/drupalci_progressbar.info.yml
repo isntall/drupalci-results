@@ -1,0 +1,6 @@
+name: Progressbar
+type: module
+description: 'Progressbar field formatter.'
+package: DrupalCI
+version: VERSION
+core: 8.x

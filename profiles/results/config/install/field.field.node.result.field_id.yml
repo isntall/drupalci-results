@@ -1,0 +1,22 @@
+uuid: c4508bcb-c97b-4fe4-af00-0c45df0838a7
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_id
+    - node.type.result
+id: node.result.field_id
+field_name: field_id
+entity_type: node
+bundle: result
+label: ID
+description: 'Unique identifier for this build. This is generally a MD5 hash.'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string
