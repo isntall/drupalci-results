@@ -1,7 +1,7 @@
-uuid: c98eb73e-7dc4-46d9-9c00-fbc6ff1ac046
-name: 'DrupalCI Results'
+uuid: 6b6dc5e8-c64b-48ce-b100-f1f8c50e5a4d
+name: DrupalCI
 mail: admin@example.com
-slogan: ''
+slogan: 'A DrupalCI initiative project'
 page:
   403: ''
   404: ''

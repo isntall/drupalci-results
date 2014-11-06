@@ -1,0 +1,77 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.node.result.field_artefacts
+    - field.field.node.result.field_console
+    - field.field.node.result.field_dispatcher
+    - field.field.node.result.field_id
+    - field.field.node.result.field_state
+    - field.field.node.result.field_summary
+    - node.type.result
+  module:
+    - entity_reference
+    - file
+    - link
+id: node.result.default
+targetEntityType: node
+bundle: result
+mode: default
+content:
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_id:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_summary:
+    type: string_textfield
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dispatcher:
+    type: link_default
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_artefacts:
+    type: file_generic
+    weight: 5
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_console:
+    type: link_default
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_state:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_type: tags
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+hidden:
+  body: true
+  uid: true
+  created: true
+  promote: true
+  sticky: true
+third_party_settings: {  }

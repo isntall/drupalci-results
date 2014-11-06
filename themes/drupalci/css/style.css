@@ -51,7 +51,11 @@
   float: right;
 }
 
-/* line 56, ../sass/style.scss */
+/* line 55, ../sass/style.scss */
+.field-name-field-artefacts {
+  display: inline-block;
+}
+/* line 58, ../sass/style.scss */
 .field-name-field-artefacts .field-item {
   float: left;
   margin: 10px;

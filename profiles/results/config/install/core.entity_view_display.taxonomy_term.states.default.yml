@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.taxonomy_term.states.field_machine
+    - field.field.taxonomy_term.states.field_percentage
+    - taxonomy.vocabulary.states
+id: taxonomy_term.states.default
+label: null
+targetEntityType: taxonomy_term
+bundle: states
+mode: default
+content:
+  field_percentage:
+    type: number_unformatted
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  description: true
+  field_machine: true
+third_party_settings: {  }

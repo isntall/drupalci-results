@@ -1,0 +1,9 @@
+id: taxonomy_term.full
+label: 'Taxonomy term page'
+targetEntityType: taxonomy_term
+status: true
+cache: true
+langcode: und
+dependencies:
+  module:
+    - taxonomy

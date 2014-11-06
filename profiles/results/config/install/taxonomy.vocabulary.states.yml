@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+name: States
+vid: states
+description: 'The states of the build, each identifying how far along a build is with a percentage.'
+hierarchy: 0
+weight: 0
+third_party_settings: {  }

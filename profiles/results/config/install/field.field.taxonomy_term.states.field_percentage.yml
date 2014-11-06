@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.taxonomy_term.field_percentage
+    - taxonomy.vocabulary.states
+id: taxonomy_term.states.field_percentage
+field_name: field_percentage
+entity_type: taxonomy_term
+bundle: states
+label: percentage
+description: 'How far along will the build be once assigned this term?'
+required: true
+translatable: false
+default_value:
+  -
+    value: 40
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: '%'
+  suffix: ''
+  size: normal
+third_party_settings: {  }
+field_type: integer

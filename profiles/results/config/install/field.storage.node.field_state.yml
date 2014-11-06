@@ -1,24 +1,16 @@
-uuid: 68820267-e7e0-4721-8a2c-44efdd25c7a8
 langcode: en
 status: true
 dependencies:
   module:
+    - entity_reference
     - node
-    - options
 id: node.field_state
 field_name: field_state
 entity_type: node
-type: list_string
+type: entity_reference
 settings:
-  allowed_values:
-    -
-      value: pass
-      label: Pass
-    -
-      value: fail
-      label: Fail
-  allowed_values_function: ''
-module: options
+  target_type: taxonomy_term
+module: entity_reference
 locked: false
 cardinality: 1
 translatable: true

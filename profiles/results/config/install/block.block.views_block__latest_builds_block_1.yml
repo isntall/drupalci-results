@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - views.view.latest_builds
+  module:
+    - views
+  theme:
+    - drupalci
+id: views_block__latest_builds_block_1
+theme: drupalci
+region: sidebar
+weight: -3
+provider: null
+plugin: 'views_block:latest_builds-block_1'
+settings:
+  visibility:
+    request_path:
+      id: request_path
+      pages: '<front>'
+      negate: true
+  id: 'views_block:latest_builds-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  cache:
+    max_age: 0
+    contexts: {  }
+  views_label: ''
+  items_per_page: none
+  override:
+    items_per_page: none
+  views_label_checkbox: 0

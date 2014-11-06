@@ -1,4 +1,3 @@
-uuid: 63030526-2fea-4729-aa34-526d259cd90f
 langcode: en
 status: true
 dependencies:
@@ -17,7 +16,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: artefacts
-  file_extensions: 'txt xml'
+  file_extensions: 'txt xml log sql html'
   max_filesize: '20 MB'
   description_field: false
   handler: default

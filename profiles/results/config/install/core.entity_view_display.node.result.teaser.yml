@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.result.field_artefacts
+    - field.field.node.result.field_console
+    - field.field.node.result.field_dispatcher
+    - field.field.node.result.field_id
+    - field.field.node.result.field_state
+    - field.field.node.result.field_summary
+    - node.type.result
+  module:
+    - entity_reference
+    - user
+id: node.result.teaser
+label: null
+targetEntityType: node
+bundle: result
+mode: teaser
+content:
+  field_state:
+    type: entity_reference_entity_view
+    weight: 0
+    settings:
+      view_mode: progress
+      link: false
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  langcode: true
+  field_console: true
+  field_dispatcher: true
+  field_id: true
+  body: true
+  field_summary: true
+  field_artefacts: true
+  links: true
+third_party_settings: {  }

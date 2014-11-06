@@ -1,0 +1,9 @@
+id: taxonomy_term.progress
+label: Progress
+targetEntityType: taxonomy_term
+status: true
+cache: true
+langcode: en
+dependencies:
+  module:
+    - taxonomy

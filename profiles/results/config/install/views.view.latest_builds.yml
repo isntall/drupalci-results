@@ -1,4 +1,3 @@
-uuid: 893fdf44-114f-4a40-9600-ab482600a8a5
 langcode: en
 status: true
 dependencies:
@@ -79,8 +78,7 @@ display:
       row:
         type: 'entity:node'
         options:
-          build_mode: teaser
-          links: true
+          relationship: none
           view_mode: teaser
           rendering_language: translation_language_renderer
       fields:
@@ -167,7 +165,11 @@ display:
       path: latest
       menu:
         type: normal
-        title: Latest
+        title: 'Latest builds'
+        description: ''
+        parent: ''
+        weight: -50
+        context: '0'
         menu_name: main
   feed_1:
     display_plugin: feed
@@ -198,14 +200,24 @@ display:
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
       style:
-        type: html_list
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+        provider: views
       defaults:
         style: false
         row: false
         pager: false
         pager_options: false
       row:
-        type: fields
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: tiny
+          rendering_language: translation_language_renderer
+        provider: node
       pager:
         type: some
         options:

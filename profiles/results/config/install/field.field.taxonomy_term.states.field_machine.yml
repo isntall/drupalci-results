@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.taxonomy_term.field_machine
+    - taxonomy.vocabulary.states
+id: taxonomy_term.states.field_machine
+field_name: field_machine
+entity_type: taxonomy_term
+bundle: states
+label: machine
+description: 'The machine name of the state eg. new'
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string

@@ -1,0 +1,60 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.node.result.field_artefacts
+    - field.field.node.result.field_console
+    - field.field.node.result.field_dispatcher
+    - field.field.node.result.field_id
+    - field.field.node.result.field_state
+    - field.field.node.result.field_summary
+    - node.type.result
+  module:
+    - drupalci_link_button
+    - entity_reference
+    - link
+    - user
+id: node.result.default
+label: null
+targetEntityType: node
+bundle: result
+mode: default
+content:
+  field_state:
+    type: entity_reference_entity_view
+    weight: 0
+    settings:
+      view_mode: progress
+      link: false
+    third_party_settings: {  }
+    label: hidden
+  field_summary:
+    type: string
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_artefacts:
+    type: file_link_button
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    label: above
+  field_console:
+    type: link
+    weight: 3
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    label: above
+hidden:
+  langcode: true
+  field_dispatcher: true
+  body: true
+  links: true
+  field_id: true
+third_party_settings: {  }

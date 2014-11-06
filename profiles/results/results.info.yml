@@ -7,22 +7,24 @@ dependencies:
   - block
   - breakpoint
   - config
+  - menu_link_content
   - dblog
   - field
-  - field_ui
   - filter
   - node
   - system
+  - taxonomy
   - toolbar
   - update
   - user
   - views
-  - views_ui
+  - drupalci_link_button
   - entity_reference
   - file
   - link
   - options
   - text
+  - page_manager
   - rest
   - serialization
 themes:
