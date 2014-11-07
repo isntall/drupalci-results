@@ -18,3 +18,4 @@ projects[drupal][patch][] = https://www.drupal.org/files/issues/2350507-22.patch
 ; Contrib modules.
 
 projects[page_manager][version] = "1.0-alpha2"
+projects[restui][version] = "1.x-dev"

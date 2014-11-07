@@ -27,6 +27,10 @@ dependencies:
   - page_manager
   - rest
   - serialization
+  - hal
+  - basic_auth
+  - rest
+  - restui
 themes:
   - seven
   - drupalci
