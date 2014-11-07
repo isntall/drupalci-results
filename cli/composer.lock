@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3217bc25687d407ec40bb298fab8188c",
+    "hash": "32a775e07f811fd5fc20171d121b195d",
     "packages": [
         {
             "name": "guzzle/common",
@@ -205,6 +205,52 @@
             "time": "2014-05-01 21:36:02"
         },
         {
+            "name": "halilim/xml-iterator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/halilim/xml-iterator.git",
+                "reference": "4978b172777e2b5e3e2b55dae706ff5c1a73bf90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/halilim/xml-iterator/zipball/4978b172777e2b5e3e2b55dae706ff5c1a73bf90",
+                "reference": "4978b172777e2b5e3e2b55dae706ff5c1a73bf90",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-simplexml": "*",
+                "ext-spl": "*",
+                "ext-xmlreader": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "XmlIterator": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Halil Özgür",
+                    "email": "halil@ozgur.gmail.com"
+                }
+            ],
+            "description": "XML Reader to simplexml/array iterator with low memory usage and an acceptable level of ease of use.",
+            "keywords": [
+                "SimpleXML",
+                "XMLReader",
+                "iterator",
+                "xml"
+            ],
+            "time": "2013-07-06 10:26:51"
+        },
+        {
             "name": "symfony/console",
             "version": "v2.5.3",
             "target-dir": "Symfony/Component/Console",
@@ -316,6 +362,53 @@
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
             "time": "2014-11-03 03:55:50"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Finder",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Finder.git",
+                "reference": "d556a66cbe5b2b81e7abc75b4066b057fbc7af94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/d556a66cbe5b2b81e7abc75b4066b057fbc7af94",
+                "reference": "d556a66cbe5b2b81e7abc75b4066b057fbc7af94",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Finder\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-10-26 07:46:28"
         }
     ],
     "packages-dev": [
@@ -1114,7 +1207,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "symfony/finder": 20,
         "guzzle/http": 20,
+        "halilim/xml-iterator": 20,
         "phpunit/phpunit": 20
     },
     "prefer-stable": false,

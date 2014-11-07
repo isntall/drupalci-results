@@ -2,6 +2,7 @@
 
 namespace DrupalCIResults;
 
+use Symfony\Component\Finder\Finder;
 use Guzzle\Http\Client;
 
 class ResultsAPI {
@@ -97,12 +98,24 @@ class ResultsAPI {
    * Build a "Summary" based on the artefacts.
    */
   public function summary($artefacts) {
-    // @todo, add checks.
+    $result = new ResultsOutput();
+    $finder = new Finder();
+
+    // Load up the XML files. Those are generally the one's we want to compute.
+    // @todo, Think of a better way to dynamically handle filetypes.
+    $finder->files()->name('*.xml')->in($artefacts);
+    foreach ($finder as $file) {
+      $path = $file->getRealpath();
+      $report = new JunitParser($path);
+      $report->appendResults($result);
+    }
+
+    $tests = $result->getTests();
+    $assertions = $result->getAssertions();
+    $failures = $result->getFailures();
+    $errors = $result->getErrors();
+    return "Tests: " . $tests . ", Assertions: " . $assertions . ", Failures: " . $failures . " and " . $errors . " errors.";
   }
-
-  /** public function send() {
-
-  }  */
 
   /**
    * @return string
