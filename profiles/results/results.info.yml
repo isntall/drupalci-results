@@ -31,6 +31,7 @@ dependencies:
   - basic_auth
   - rest
   - restui
+  - rest_api_doc
 themes:
   - seven
   - drupalci

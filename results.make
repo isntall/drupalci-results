@@ -19,3 +19,4 @@ projects[drupal][patch][] = https://www.drupal.org/files/issues/2350507-22.patch
 
 projects[page_manager][version] = "1.0-alpha2"
 projects[restui][version] = "1.x-dev"
+projects[rest_api_doc][version] = "1.x-dev"
