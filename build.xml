@@ -5,124 +5,129 @@
 
 <project name="results" default="build" phingVersion="2.4.11">
 
-  <!-- Properties. -->
+    <!-- Properties. -->
 
-  <!-- Application -->
-  <property name="app.docroot" value="app" />
-  <property name="app.dir" value="${project.basedir}/${app.docroot}" />
-  <property name="app.db.url" value="mysql://drupal:drupal@localhost/drupal" />
-  <property name="app.profile" value="standard" />
+    <!-- Application -->
+    <property name="app.docroot" value="app" />
+    <property name="app.dir" value="${project.basedir}/${app.docroot}" />
+    <property name="app.db.url" value="mysql://drupal:drupal@localhost/drupal" />
+    <property name="app.profile" value="standard" />
 
-  <!-- Composer -->
-  <property name="composer.bin" value="/usr/local/bin/composer" />
+    <!-- Composer -->
+    <property name="composer.bin" value="/usr/local/bin/composer" />
 
-  <!-- Drush -->
-  <property name="drush.bin" value="bin/drush" />
-  <property name="drush.cmd" value="${drush.bin} -r ${app.dir}" />
-  <property name="drush.make.file" value="results.make" />
+    <!-- Drush -->
+    <property name="drush.bin" value="bin/drush" />
+    <property name="drush.cmd" value="${drush.bin} -r ${app.dir}" />
+    <property name="drush.make.file" value="results.make" />
 
-  <!-- Drupal -->
-  <property name="drupal.siteName" value="DrupalCI Results" />
-  <property name="drupal.email" value="user@example.com" />
-  <property name="drupal.user" value="admin" />
-  <property name="drupal.pass" value="password" />
-  <property name="drupal.dir" value="${project.basedir}/app" />
-  <property name="drupal.profile" value="results" />
+    <!-- Drupal -->
+    <property name="drupal.siteName" value="DrupalCI Results" />
+    <property name="drupal.email" value="user@example.com" />
+    <property name="drupal.user" value="admin" />
+    <property name="drupal.pass" value="password" />
+    <property name="drupal.dir" value="${project.basedir}/app" />
+    <property name="drupal.profile" value="results" />
 
-  <!-- Mysql -->
-  <property name="mysql.host" value="localhost" />
-  <property name="mysql.port" value="3306" />
-  <property name="mysql.database" value="drupal" />
-  <property name="mysql.user" value="drupal" />
-  <property name="mysql.pass" value="drupal" />
-  <property name="mysql.queryString" value="mysql://${mysql.user}:${mysql.pass}@${mysql.host}/${mysql.database}" />
+    <!-- Mysql -->
+    <property name="mysql.host" value="localhost" />
+    <property name="mysql.port" value="3306" />
+    <property name="mysql.database" value="drupal" />
+    <property name="mysql.user" value="drupal" />
+    <property name="mysql.pass" value="drupal" />
+    <property name="mysql.queryString" value="mysql://${mysql.user}:${mysql.pass}@${mysql.host}/${mysql.database}" />
 
-  <!-- Vagrant -->
-  <property name="vagrant.dir" value="/vagrant" />
+    <!-- Vagrant -->
+    <property name="vagrant.dir" value="/vagrant" />
 
-  <!-- Meta targets. -->
+    <!-- Meta targets. -->
 
-  <target name="build"
-          description="Build the project and test it."
-          depends="prepare, composer:install, drush:make, drupal:install" />
+    <target name="build"
+            description="Build the project and test it."
+            depends="prepare, composer:install, drush:make, drupal:install" />
 
-  <!-- Steps targets. -->
+    <!-- Steps targets. -->
 
-  <target name="prepare"
-          description="Prepare the directories." >
-      <exec command="sudo rm -fR ${app.dir}"
-            logoutput="true"
-            passthru="true" />
-  </target>
+    <target name="prepare"
+            description="Prepare the directories." >
+        <exec command="sudo rm -fR ${app.dir}"
+              logoutput="true"
+              passthru="true" />
+    </target>
 
-  <!-- Runs a command in the Vagrant host -->
-  <target name="vagrant:run"
-          if="drush.cmd"
-          description="Run a command in the vagrant host.">
-    <exec command="vagrant ssh -c '${vagrant.cmd}'"
-          logoutput="true"
-          passthru="true" />
-  </target>
+    <!-- Runs a command in the Vagrant host -->
+    <target name="vagrant:run"
+            if="drush.cmd"
+            description="Run a command in the vagrant host.">
+        <exec command="vagrant ssh -c '${vagrant.cmd}'"
+              logoutput="true"
+              passthru="true" />
+    </target>
 
-  <target name="composer:install"
-          description="Install's composer dependencies as provided in composer.json file.">
-    <exec command="${composer.bin} install --prefer-dist --dev --no-progress"
-          passthru="true"
-          logoutput="true" />
-  </target>
+    <target name="composer:install"
+            description="Install's composer dependencies as provided in composer.json file.">
+        <exec command="${composer.bin} install --prefer-dist --dev --no-progress"
+              passthru="true"
+              logoutput="true" />
+    </target>
 
-  <target name="drush:make"
-          description="Builds the application based on the drush make file.">
-    <exec command="${drush.bin} make ${drush.make.file} ${app.docroot}"
-          passthru="true"
-          logoutput="true" />
+    <target name="drush:make"
+            description="Builds the application based on the drush make file.">
+        <exec command="${drush.bin} make ${drush.make.file} ${app.docroot}"
+              passthru="true"
+              logoutput="true" />
 
-    <!-- We also symlink in our modules, themes and profiles. -->
-    <exec command="rm -fR ${app.docroot}/modules/custom" passthru="true" logoutput="true" />
-    <exec command="rm -fR ${app.docroot}/themes/custom" passthru="true" logoutput="true" />
-    <exec command="rm -fR ${app.docroot}/profiles" passthru="true" logoutput="true" />
-    <symlink target="../../modules" link="${app.dir}/modules/custom" />
-    <symlink target="../../themes" link="${app.dir}/themes/custom" />
-    <symlink target="../profiles" link="${app.dir}/profiles" />
-  </target>
+        <!-- We also symlink in our modules, themes and profiles. -->
+        <exec command="rm -fR ${app.docroot}/modules/custom" passthru="true" logoutput="true" />
+        <exec command="rm -fR ${app.docroot}/themes/custom" passthru="true" logoutput="true" />
+        <exec command="rm -fR ${app.docroot}/profiles" passthru="true" logoutput="true" />
+        <symlink target="../../modules" link="${app.dir}/modules/custom" />
+        <symlink target="../../themes" link="${app.dir}/themes/custom" />
+        <symlink target="../profiles" link="${app.dir}/profiles" />
+    </target>
 
-  <target name="drupal:config:export"
-          description="Export all of teh site configuration to the profile.">
-    <echo msg="cd ${vagrant.dir}; ./bin/drush -r ${vagrant.dir}/app config-export --destination ${vagrant.dir}/profiles/results/config/install" />
+    <target name="drupal:config:export"
+            description="Export all of teh site configuration to the profile.">
+        <echo msg="cd ${vagrant.dir}; ./bin/drush -r ${vagrant.dir}/app config-export --destination ${vagrant.dir}/profiles/results/config/install" />
 
-    <phingcall target="vagrant:run">
-      <!-- After some properties for inside the Vagrant host. -->
-      <property name="vagrant.cmd" value="cd ${vagrant.dir}; ./bin/drush -r ${vagrant.dir}/app config-export --destination ${vagrant.dir}/profiles/results/config/install" />
-    </phingcall>
-  </target>
+        <phingcall target="vagrant:run">
+            <!-- After some properties for inside the Vagrant host. -->
+            <property name="vagrant.cmd" value="cd ${vagrant.dir}; ./bin/drush -r ${vagrant.dir}/app config-export --destination ${vagrant.dir}/profiles/results/config/install" />
+        </phingcall>
+    </target>
 
-  <target name="drupal:install"
-          description="Install the site with Drush.">
-    <!-- Ensure the files directory is clean -->
-    <exec command="sudo rm -fR ${app.dir}/sites/default/files"
-          logoutput="true"
-          passthru="true" />
+    <target name="drupal:install"
+            description="Install the site with Drush.">
+        <!-- Ensure the files directory is clean -->
+        <exec command="sudo rm -fR ${app.dir}/sites/default/files"
+              logoutput="true"
+              passthru="true" />
 
-    <!-- Ensure we have a fresh settings.php with correct permissions -->
-    <exec command="sudo scp ${app.dir}/sites/default/default.settings.php ${app.dir}/sites/default/settings.php"
-          logoutput="true"
-          passthru="true" />
-    <exec command="sudo chmod 777 ${app.dir}/sites/default/settings.php"
-          logoutput="true"
-          passthru="true" />
+        <!-- Ensure we have a fresh settings.php with correct permissions -->
+        <exec command="sudo scp ${app.dir}/sites/default/default.settings.php ${app.dir}/sites/default/settings.php"
+              logoutput="true"
+              passthru="true" />
+        <exec command="sudo chmod 777 ${app.dir}/sites/default/settings.php"
+              logoutput="true"
+              passthru="true" />
 
-    <!-- Ensure we have a fresh services.yml with correct permissions -->
-    <exec command="sudo scp ${app.dir}/sites/default/default.services.yml ${app.dir}/sites/default/services.yml"
-          logoutput="true"
-          passthru="true" />
-    <exec command="sudo chmod 777 ${app.dir}/sites/default/services.yml"
-          logoutput="true"
-          passthru="true" />
+        <!-- Ensure we have a fresh services.yml with correct permissions -->
+        <exec command="sudo scp ${app.dir}/sites/default/default.services.yml ${app.dir}/sites/default/services.yml"
+              logoutput="true"
+              passthru="true" />
+        <exec command="sudo chmod 777 ${app.dir}/sites/default/services.yml"
+              logoutput="true"
+              passthru="true" />
 
-    <phingcall target="vagrant:run">
-      <!-- After some properties for inside the Vagrant host. -->
-      <property name="vagrant.cmd" value="cd ${vagrant.dir}; ./bin/drush -vd -r ${vagrant.dir}/app site-install ${drupal.profile} -y --db-url=${mysql.queryString} --account-mail=${drupal.email} --account-name=${drupal.user} --account-pass=${drupal.pass} --site-name=${drupal.siteName}" />
-    </phingcall>
-  </target>
+        <phingcall target="vagrant:run">
+            <!-- After some properties for inside the Vagrant host. -->
+            <property name="vagrant.cmd" value="cd ${vagrant.dir}; ./bin/drush -vd -r ${vagrant.dir}/app site-install ${drupal.profile} -y --db-url=${mysql.queryString} --account-mail=${drupal.email} --account-name=${drupal.user} --account-pass=${drupal.pass} --site-name=${drupal.siteName}" />
+        </phingcall>
+
+        <phingcall target="vagrant:run">
+            <!-- After some properties for inside the Vagrant host. -->
+            <property name="vagrant.cmd" value="cd ${vagrant.dir}; ./bin/drush -r ${vagrant.dir}/app uli" />
+        </phingcall>
+    </target>
 
 </project>
