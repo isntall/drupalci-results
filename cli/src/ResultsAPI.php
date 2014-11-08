@@ -5,6 +5,11 @@ namespace DrupalCIResults;
 use Symfony\Component\Finder\Finder;
 use Guzzle\Http\Client;
 
+/**
+ * @file
+ * Decoupled API for the results site backend.
+ */
+
 class ResultsAPI {
 
   /**

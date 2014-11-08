@@ -5,7 +5,7 @@
  * Contains \Drupal\drupalci_link_button\Plugin\field\formatter\LinkButtonFileFormatter.
  */
 
-namespace Drupal\drupalci_link_button\Plugin\Field\FieldFormatter;
+namespace Drupal\link_button\Plugin\Field\FieldFormatter;
 
 use Drupal\file\Plugin\Field\FieldFormatter\FileFormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;

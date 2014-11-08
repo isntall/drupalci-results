@@ -7,6 +7,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 
+/**
+ * @file
+ * Command to get the summary of passes, build or errors from artefacts.
+ */
+
 class SummaryCommand extends Command {
 
   protected function configure() {

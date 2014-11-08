@@ -7,6 +7,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 
+/**
+ * @file
+ * Command for creating new builds.
+ */
+
 class CreateCommand extends Command {
 
   protected function configure() {

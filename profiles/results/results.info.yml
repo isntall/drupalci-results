@@ -18,7 +18,7 @@ dependencies:
   - update
   - user
   - views
-  - drupalci_link_button
+  - link_button
   - entity_reference
   - file
   - link
@@ -32,6 +32,7 @@ dependencies:
   - rest
   - restui
   - rest_api_doc
+  - default_content
 themes:
   - seven
   - drupalci

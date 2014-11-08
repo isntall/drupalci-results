@@ -7,6 +7,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 
+/**
+ * @file
+ * Command to progress the build on the results site.
+ */
+
 class ProgressCommand extends Command {
 
   protected function configure() {

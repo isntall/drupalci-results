@@ -1,7 +1,9 @@
+uuid: 94859a08-0ce2-4743-9c42-662f82cc539d
 langcode: en
 status: true
 dependencies:
   entity:
+    - field.field.node.result.body
     - field.field.node.result.field_artefacts
     - field.field.node.result.field_console
     - field.field.node.result.field_dispatcher
@@ -32,6 +34,15 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_state:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_type: tags
+      placeholder: ''
+    third_party_settings: {  }
   field_summary:
     type: string_textfield
     weight: 3
@@ -59,15 +70,6 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_state:
-    weight: 26
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      autocomplete_type: tags
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
 hidden:
   body: true
   uid: true

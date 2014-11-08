@@ -8,6 +8,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
+/**
+ * @file
+ * Command to upload build artefacts to the results site.
+ */
+
 class UploadCommand extends Command {
 
   protected function configure() {

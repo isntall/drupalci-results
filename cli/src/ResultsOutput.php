@@ -2,6 +2,11 @@
 
 namespace DrupalCIResults;
 
+/**
+ * @file
+ * A class to track the number of passes, fails and errors.
+ */
+
 class ResultsOutput {
 
   protected $tests = 0;

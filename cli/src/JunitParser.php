@@ -4,6 +4,11 @@ namespace DrupalCIResults;
 
 use XmlIterator\XmlIterator;
 
+/**
+ * @file
+ * Parsing for JUnit files.
+ */
+
 class JunitParser {
 
   protected $file = '';
