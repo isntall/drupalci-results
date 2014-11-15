@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<testsuite>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="setUp()">
+    <failure type="failure" message="User login">User &lt;em class="placeholder"&gt;tAXuvhhV&lt;/em&gt; successfully logged in.</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Browser">Widget found.</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Raw "placeholder=&amp;quot;123-456-7890&amp;quot;" found</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Failed to set field title[0][value] to ma3yjnvY</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Failed to set field field_telephone[0][value] to 123456789</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Found the Save button</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Found the requested form fields at </failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">A telephone link is provided on the article node page.</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Failed to set field title[0][value] to dj0t7QFK</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Failed to set field field_telephone[0][value] to 1234 56789</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Found the Save button</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Found the requested form fields at node/add/article</failure>
+  </testcase>
+  <testcase classname="Drupal\telephone\Tests\TelephoneFieldTest" name="testTelephoneField()">
+    <failure type="failure" message="Other">Telephone link is output with whitespace removed.</failure>
+  </testcase>
+</testsuite>
+

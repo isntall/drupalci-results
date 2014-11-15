@@ -1,18 +1,18 @@
 <?php
 
-namespace DrupalCIResults;
+namespace DrupalCIResults\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use DrupalCIResults\ResultsAPI;
 
 /**
- * @file
  * Command to upload build artefacts to the results site.
+ * @package DrupalCIResults
  */
-
 class UploadCommand extends Command {
 
   protected function configure() {

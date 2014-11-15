@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<testsuite>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="setUp()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="testTestItem()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="testTestItem()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="testTestItem()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="testTestItem()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="testTestItem()"/>
+  <testcase classname="Drupal\telephone\Tests\TelephoneItemTest" name="testTestItem()"/>
+</testsuite>

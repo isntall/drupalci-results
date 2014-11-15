@@ -17,4 +17,30 @@ function results_install() {
 
   // Allow visitor account creation, but with administrative approval.
   \Drupal::config('user.settings')->set('register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)->save();
+
+  // Workflow.
+  entity_create('taxonomy_term', array(
+    'name' => 'New',
+    'field_machine' => 'new',
+    'field_percentage' => '20',
+    'vid' => 'states',
+  ))->save();
+  entity_create('taxonomy_term', array(
+    'name' => 'Building',
+    'field_machine' => 'building',
+    'field_percentage' => '60',
+    'vid' => 'states',
+  ))->save();
+  entity_create('taxonomy_term', array(
+    'name' => 'Failed',
+    'field_machine' => 'failed',
+    'field_percentage' => '100',
+    'vid' => 'states',
+  ))->save();
+  entity_create('taxonomy_term', array(
+    'name' => 'Passed',
+    'field_machine' => 'passed',
+    'field_percentage' => '100',
+    'vid' => 'states',
+  ))->save();
 }

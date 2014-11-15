@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "32a775e07f811fd5fc20171d121b195d",
+    "hash": "139b65caedeeae2afc8b1f2359713187",
     "packages": [
         {
             "name": "guzzle/common",
@@ -312,12 +312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "dcf345d5ed96bc6c3b4521c1989670d2c9e5014e"
+                "reference": "3d8c5d466f471c5a97a334ee7ea5e30290c7d032"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/dcf345d5ed96bc6c3b4521c1989670d2c9e5014e",
-                "reference": "dcf345d5ed96bc6c3b4521c1989670d2c9e5014e",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/3d8c5d466f471c5a97a334ee7ea5e30290c7d032",
+                "reference": "3d8c5d466f471c5a97a334ee7ea5e30290c7d032",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +337,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -361,11 +361,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-03 03:55:50"
+            "time": "2014-11-11 08:37:22"
         },
         {
             "name": "symfony/finder",
-            "version": "dev-master",
+            "version": "2.6.x-dev",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
@@ -409,6 +409,53 @@
             "description": "Symfony Finder Component",
             "homepage": "http://symfony.com",
             "time": "2014-10-26 07:46:28"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v2.5.6",
+            "target-dir": "Symfony/Component/Yaml",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml.git",
+                "reference": "2d9f527449cabfa8543dd7fa3a466d6ae83d6726"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/2d9f527449cabfa8543dd7fa3a466d6ae83d6726",
+                "reference": "2d9f527449cabfa8543dd7fa3a466d6ae83d6726",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-10-01 05:50:18"
         }
     ],
     "packages-dev": [
@@ -472,12 +519,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c3e185a27ae59680237c836caecef66c8bd839a8"
+                "reference": "991c4203ef3bdf8a1d197f2fe877028dc78dfda7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c3e185a27ae59680237c836caecef66c8bd839a8",
-                "reference": "c3e185a27ae59680237c836caecef66c8bd839a8",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/991c4203ef3bdf8a1d197f2fe877028dc78dfda7",
+                "reference": "991c4203ef3bdf8a1d197f2fe877028dc78dfda7",
                 "shasum": ""
             },
             "require": {
@@ -529,7 +576,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-31 10:06:54"
+            "time": "2014-11-11 14:17:20"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -719,12 +766,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a05a4e3517c2f83523e8c7fc5544b82cc3ab14f9"
+                "reference": "fc27e30aa4c02a6877e343afb2c1eaf9fab0ddf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a05a4e3517c2f83523e8c7fc5544b82cc3ab14f9",
-                "reference": "a05a4e3517c2f83523e8c7fc5544b82cc3ab14f9",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fc27e30aa4c02a6877e343afb2c1eaf9fab0ddf3",
+                "reference": "fc27e30aa4c02a6877e343afb2c1eaf9fab0ddf3",
                 "shasum": ""
             },
             "require": {
@@ -782,7 +829,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-11-05 10:56:43"
+            "time": "2014-11-12 13:21:13"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1155,60 +1202,11 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2014-03-07 15:35:33"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "dev-master",
-            "target-dir": "Symfony/Component/Yaml",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Yaml.git",
-                "reference": "9da3813f36985a4089f7e83c601a1034d125ff69"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/9da3813f36985a4089f7e83c601a1034d125ff69",
-                "reference": "9da3813f36985a4089f7e83c601a1034d125ff69",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Yaml\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "http://symfony.com",
-            "time": "2014-11-03 03:55:50"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/finder": 20,
-        "guzzle/http": 20,
         "halilim/xml-iterator": 20,
         "phpunit/phpunit": 20
     },

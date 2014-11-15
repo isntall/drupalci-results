@@ -1,11 +1,12 @@
 <?php
 
-namespace DrupalCIResults;
+namespace DrupalCIResults\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use DrupalCIResults\ResultsAPI;
 
 /**
  * @file
@@ -30,7 +31,8 @@ class CreateCommand extends Command {
     $password = $input->getOption('password');
     $url = $input->getOption('url');
 
-    $results = new ResultsAPI($url);
+    $results = new ResultsAPI();
+    $results->setUrl($url);
     $results->setAuth($username, $password);
     $success = $results->create($title);
 

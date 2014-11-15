@@ -1,11 +1,12 @@
 <?php
 
-namespace DrupalCIResults;
+namespace DrupalCIResults\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use DrupalCIResults\ResultsAPI;
 
 /**
  * @file
@@ -19,7 +20,7 @@ class ProgressCommand extends Command {
     $this->setName($command)
       ->setDescription('Update the state of the build on the results site.')
       ->addOption('id', null, InputOption::VALUE_REQUIRED, 'The ID of the build on the results site.')
-      ->addOption('state', null, InputOption::VALUE_REQUIRED, 'The state to assign to the build.', 'admin')
+      ->addOption('state', null, InputOption::VALUE_REQUIRED, 'The state to assign to the build.')
       ->addOption('username', null, InputOption::VALUE_REQUIRED, 'The username of the user with authorization to push to the results site.', 'admin')
       ->addOption('password', null, InputOption::VALUE_REQUIRED, 'The password of the user with authorization to push to the results site.', 'admin')
       ->addOption('url', null, InputOption::VALUE_REQUIRED, 'The URL of the results site.', 'http://results.drupalci.org');
@@ -32,7 +33,8 @@ class ProgressCommand extends Command {
     $password = $input->getOption('password');
     $url = $input->getOption('url');
 
-    $results = new ResultsAPI($url);
+    $results = new ResultsAPI();
+    $results->setUrl($url);
     $results->setAuth($username, $password);
     $success = $results->progress($id, $state);
 

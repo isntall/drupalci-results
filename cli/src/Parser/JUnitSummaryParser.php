@@ -1,31 +1,32 @@
 <?php
 
-namespace DrupalCIResults;
+namespace DrupalCIResults\Parser;
 
 use XmlIterator\XmlIterator;
 
 /**
- * @file
- * Parsing for JUnit files.
+ * Class JunitSummaryParser
+ * @package DrupalCIResults
  */
-
-class JunitParser {
+class JUnitSummaryParser implements ParserInterface {
 
   protected $file = '';
 
-  public function __construct($file) {
-    $this->setFile($file);
+  public function validate($file) {
+    if (strpos($file, '.xml') !== FALSE) {
+      // @todo, ensure this is a junit file.
+      return true;
+    }
+    return false;
   }
 
-  public function appendResults(ResultsOutput &$results) {
+  public function appendResults(&$results) {
     $file = $this->getFile();
     $it = new XmlIterator($file, "testsuite");
     foreach ($it as $k => $v) {
-      $tests = !empty($v['@attributes']['tests']) ? $v['@attributes']['tests'] : 0;
       $assertions = !empty($v['@attributes']['assertions']) ? $v['@attributes']['assertions'] : 0;
       $failures = !empty($v['@attributes']['failures']) ? $v['@attributes']['failures'] : 0;
       $errors = !empty($v['@attributes']['errors']) ? $v['@attributes']['errors'] : 0;
-      $results->addTests($tests);
       $results->addAssertions($assertions);
       $results->addFailures($failures);
       $results->addErrors($errors);

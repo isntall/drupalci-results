@@ -1,15 +1,13 @@
 <?php
 
-namespace DrupalCIResults;
+namespace DrupalCIResults\Parser;
 
 /**
  * @file
  * A class to track the number of passes, fails and errors.
  */
 
-class ResultsOutput {
-
-  protected $tests = 0;
+class ParserResults implements ParserResultsInterface {
 
   protected $assertions = 0;
 
@@ -18,11 +16,14 @@ class ResultsOutput {
   protected $errors = 0;
 
   /**
-   * Helper function to increment passes.
+   * Print the results into a human readable string.
+   * @return string
    */
-  public function addTests($tests) {
-    $total = $this->getTests() + $tests;
-    $this->setTests($total);
+  public function printResults() {
+    $assertions = $this->getAssertions();
+    $failures = $this->getFailures();
+    $errors = $this->getErrors();
+    return "Assertions: " . $assertions . ", Failures: " . $failures . " and " . $errors . " errors.";
   }
 
   /**
@@ -90,20 +91,6 @@ class ResultsOutput {
    */
   public function setFailures($failures) {
     $this->failures = $failures;
-  }
-
-  /**
-   * @return int
-   */
-  public function getTests() {
-    return $this->tests;
-  }
-
-  /**
-   * @param int $tests
-   */
-  public function setTests($tests) {
-    $this->tests = $tests;
   }
 
 }

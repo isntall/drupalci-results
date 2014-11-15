@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="Test project" tests="5" assertions="12" failures="0" errors="0" time="0.057492">
-        <testsuite name="Test1Class" file="/var/www/tests/phpunit/Drupal/module/Test1Class.php" namespace="Drupal\test1" fullPackage="Drupal.test.test1" tests="1" assertions="3" failures="0" errors="0" time="0.022435">
+    <testsuite name="Test project" tests="5" assertions="12" failures="100" errors="1000" time="0.057492">
+        <testsuite name="Test1Class" file="/var/www/tests/phpunit/Drupal/module/Test1Class.php" namespace="Drupal\test1" fullPackage="Drupal.test.test1" tests="1" assertions="3" failures="0" errors="1000" time="0.022435">
             <testcase name="testAuthenicate" class="Drupal\module\Test1Class" file="/var/www/tests/phpunit/Drupal/module/Test1Class.php" line="21" assertions="3" time="0.022435"/>
         </testsuite>
-        <testsuite name="Test2Class" file="/var/www/tests/phpunit/Drupal/module/Test2Class.php" namespace="Drupal\test2" fullPackage="Drupal.test.test2" tests="2" assertions="5" failures="0" errors="0" time="0.021793">
+        <testsuite name="Test2Class" file="/var/www/tests/phpunit/Drupal/module/Test2Class.php" namespace="Drupal\test2" fullPackage="Drupal.test.test2" tests="2" assertions="5" failures="100" errors="0" time="0.021793">
             <testcase name="testScrape" class="Drupal\module\Test2Class" file="/var/www/tests/phpunit/Drupal/module/Test2Class.php" line="35" assertions="2" time="0.013192"/>
             <testcase name="testSubmit" class="Drupal\module\Test2Class" file="/var/www/tests/phpunit/Drupal/module/Test2Class.php" line="136" assertions="3" time="0.008601"/>
         </testsuite>

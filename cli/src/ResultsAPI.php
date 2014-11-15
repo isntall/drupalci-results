@@ -4,6 +4,8 @@ namespace DrupalCIResults;
 
 use Symfony\Component\Finder\Finder;
 use Guzzle\Http\Client;
+use Symfony\Component\Yaml\Yaml;
+use DrupalCIResults\Parser\ParserResults;
 
 /**
  * @file
@@ -43,22 +45,12 @@ class ResultsAPI {
   protected $artefactsDirectory = "";
 
   /**
-   * Constructor.
-   */
-  public function __construct($url) {
-    if ($url) {
-      $this->setUrl($url);
-    }
-    else {
-       // @todo, we need to fail here.
-    }
-  }
-
-  /**
    * Helper function to setup authentication.
    */
   public function setAuth($username, $password) {
-    // @todo, add checks.
+    if (empty($username) || empty($password)) {
+      throw new Exception('Please provide authentication credentials.');
+    }
     $this->setUsername($username);
     $this->setPassword($password);
   }
@@ -67,6 +59,9 @@ class ResultsAPI {
    * Creates a build record.
    */
   public function create($title) {
+    if (empty($title)) {
+      throw new Exception('Please provide a title.');
+    }
     $username = $this->getUsername();
     $password = $this->getPassword();
     $url = $this->getUrl();
@@ -78,6 +73,8 @@ class ResultsAPI {
         )
       ),
       'title' => array(0 => array('value' => $title)),
+      // @todo, We need to handle state vs id.
+      'field_state' => array(0 => array('target_id' => '1')),
     );
     $data = json_encode($node);
     $response = $client->post('entity/node', array('Content-type' => 'application/hal+json'), $data)->setAuth($username, $password)->send();
@@ -89,37 +86,50 @@ class ResultsAPI {
    * Updates the build in accordance with the workflow.
    */
   public function progress($id, $state) {
-    // @todo, add checks.
+    // @todo, Needs work.
   }
 
   /**
    * Calculate the "Summary" of the build and
    */
   public function upload($id, $artefacts) {
-    // @todo, add checks.
+    // @todo, Needs work.
   }
 
   /**
    * Build a "Summary" based on the artefacts.
    */
   public function summary($artefacts) {
-    $result = new ResultsOutput();
+    // Build the results.
+    $summary = new ParserResults();
     $finder = new Finder();
-
-    // Load up the XML files. Those are generally the one's we want to compute.
-    // @todo, Think of a better way to dynamically handle filetypes.
-    $finder->files()->name('*.xml')->in($artefacts);
+    $finder->files()->in($artefacts);
     foreach ($finder as $file) {
-      $path = $file->getRealpath();
-      $report = new JunitParser($path);
-      $report->appendResults($result);
+      $this->parseFile($file, $summary);
     }
 
-    $tests = $result->getTests();
-    $assertions = $result->getAssertions();
-    $failures = $result->getFailures();
-    $errors = $result->getErrors();
-    return "Tests: " . $tests . ", Assertions: " . $assertions . ", Failures: " . $failures . " and " . $errors . " errors.";
+    // Output the results.
+    return $summary->printResults();
+  }
+
+  /**
+   * Parse a file and append the results to the summary object.
+   * @param $file
+   * @param $summary
+   */
+  private function parseFile($file, &$summary) {
+    // Load up all the classes.
+    $parsers = Yaml::parse('parsers.yml');
+
+    // If the file is valid we append the results to the summary object.
+    foreach ($parsers as $parser) {
+      $path = $file->getRealpath();
+      $object = new $parser();
+      $object->setFile($path);
+      if ($object->validate($path)) {
+        $object->appendResults($summary);
+      }
+    }
   }
 
   /**
