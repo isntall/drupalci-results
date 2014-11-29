@@ -26,7 +26,11 @@ node default {
     'php-pdo',
     'nmap',
   ]:
-    ensure => 'latest',
+    ensure  => 'latest',
+    require => [
+      Class['yum::repo::remi'],
+      Class['yum::repo::remi_php56'],
+    ]
   }
 
   class { 'composer':
