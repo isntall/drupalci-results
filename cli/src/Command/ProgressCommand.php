@@ -18,8 +18,8 @@ class ProgressCommand extends Command {
   protected function configure() {
     $command = $this->getName();
     $this->setName($command)
-      ->setDescription('Update the state of the build on the results site.')
-      ->addOption('id', null, InputOption::VALUE_REQUIRED, 'The ID of the build on the results site.')
+      ->setDescription('Progress the state of the build on the results site.')
+      ->addOption('build', null, InputOption::VALUE_REQUIRED, 'The build to progress.')
       ->addOption('state', null, InputOption::VALUE_REQUIRED, 'The state to assign to the build.')
       ->addOption('username', null, InputOption::VALUE_REQUIRED, 'The username of the user with authorization to push to the results site.', 'admin')
       ->addOption('password', null, InputOption::VALUE_REQUIRED, 'The password of the user with authorization to push to the results site.', 'admin')
@@ -27,7 +27,7 @@ class ProgressCommand extends Command {
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
-    $id = $input->getOption('id');
+    $build = $input->getOption('build');
     $state = $input->getOption('state');
     $username = $input->getOption('username');
     $password = $input->getOption('password');
@@ -36,13 +36,8 @@ class ProgressCommand extends Command {
     $results = new ResultsAPI();
     $results->setUrl($url);
     $results->setAuth($username, $password);
-    $success = $results->progress($id, $state);
+    $results->progress($build, $state);
 
-    if ($success) {
-      $output->writeln('<info>Updated the build to the state: ' . $state . '</info>');
-    }
-    else {
-      $output->writeln('<error>Failed to update the state of the build.</error>');
-    }
+    $output->writeln('<info>Updated build to the state: ' . $state . '</info>');
   }
 }

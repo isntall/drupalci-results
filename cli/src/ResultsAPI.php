@@ -3,7 +3,7 @@
 namespace DrupalCIResults;
 
 use Symfony\Component\Finder\Finder;
-use Guzzle\Http\Client;
+use GuzzleHttp\Client;
 use Symfony\Component\Yaml\Yaml;
 use DrupalCIResults\Parser\ParserResults;
 
@@ -65,28 +65,57 @@ class ResultsAPI {
     $username = $this->getUsername();
     $password = $this->getPassword();
     $url = $this->getUrl();
-    $client = new Client($url);
-    $node = array(
-      '_links' => array(
-        'type' => array(
-          'href' => $url . '/rest/type/node/result',
-        )
-      ),
-      'title' => array(0 => array('value' => $title)),
-      // @todo, We need to handle state vs id.
-      'field_state' => array(0 => array('target_id' => '1')),
-    );
-    $data = json_encode($node);
-    $response = $client->post('entity/node', array('Content-type' => 'application/hal+json'), $data)->setAuth($username, $password)->send();
 
-    return $response->getStatusCode() == 201;
+    $new = $this->getStateId('new');
+    $client = new Client(['base_url' => $url]);
+    $response = $client->post('/entity/node', [
+      'headers' => [
+        'Content-type' => 'application/hal+json',
+      ],
+      'body' => json_encode(array(
+          '_links' => array(
+            'type' => array(
+              'href' => $url . '/rest/type/node/result',
+            )
+          ),
+          'title' => array(0 => array('value' => $title)),
+          'field_state' => array(0 => array('target_id' => $new)),
+      )),
+      'auth' => [$username, $password],
+    ]);
+
+    return $response->getHeader('Location');
   }
 
   /**
    * Updates the build in accordance with the workflow.
    */
-  public function progress($id, $state) {
-    // @todo, Needs work.
+  public function progress($build, $state) {
+    if (empty($build)) {
+      throw new Exception('Please provide a build.');
+    }
+    if (empty($state)) {
+      throw new Exception('Please provide a state.');
+    }
+    $username = $this->getUsername();
+    $password = $this->getPassword();
+    $url = $this->getUrl();
+
+    $client = new Client(['base_url' => $url]);
+    $client->patch('/node/' . $build, [
+      'headers' => [
+        'Content-type' => 'application/hal+json',
+      ],
+      'body' => json_encode(array(
+        '_links' => array(
+          'type' => array(
+            'href' => $url . '/rest/type/node/result',
+          )
+        ),
+        'field_state' => array(0 => array('target_id' => $state)),
+      )),
+      'auth' => [$username, $password],
+    ]);
   }
 
   /**
@@ -130,6 +159,43 @@ class ResultsAPI {
         $object->appendResults($summary);
       }
     }
+  }
+
+  /**
+   * Gets a list of states that the remote site can use for build progression.
+   * @return array
+   */
+  public function states() {
+    $url = $this->getUrl();
+    $client = new Client(['base_url' => $url]);
+    $response = $client->get('/states', [
+      'headers' => [
+        'Accept'     => 'application/hal+json',
+      ]
+    ]);
+
+    // Format the remote API into something useful.
+    $states = $response->json();
+    $return = array();
+    foreach ($states as $state) {
+      $return[$state['field_machine']] = array(
+        'id' => $state['tid'],
+        'name' => $state['name'],
+        'percentage' => $state['field_percentage'] . '%',
+      );
+    }
+    return $return;
+  }
+
+  /**
+   * Helper function to
+   */
+  private function getStateId($state) {
+    $states = $this->states();
+    if (empty($states[$state])) {
+      throw new Exception('Cannot find this states ID.');
+    }
+    return $states[$state]['id'];
   }
 
   /**

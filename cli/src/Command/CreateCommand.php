@@ -34,10 +34,10 @@ class CreateCommand extends Command {
     $results = new ResultsAPI();
     $results->setUrl($url);
     $results->setAuth($username, $password);
-    $success = $results->create($title);
+    $location = $results->create($title);
 
-    if ($success) {
-      $output->writeln('<info>Created a new build.</info>');
+    if ($location) {
+      $output->writeln('<info>Build created: ' . $location . '</info>');
     }
     else {
       $output->writeln('<error>Failed to create a new build.</error>');
