@@ -16,7 +16,7 @@
     "require": {
         "symfony/console": "v2.5.3",
         "symfony/finder": "2.6.*",
-        "guzzle/http": "3.7.*",
+        "guzzlehttp/guzzle": "~5.0",
         "halilim/xml-iterator": "dev-master",
         "symfony/yaml": "2.5.6"
     },
