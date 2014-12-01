@@ -98,7 +98,41 @@ class ResultsAPI {
             'href' => $url . '/rest/type/node/result',
           )
         ),
-        'field_state' => array(0 => array('value' => $state)),
+        'field_state' => array(0 => array('target_id' => $state)),
+      )),
+      'auth' => [$username, $password],
+    ]);
+  }
+
+  /**
+   * Update buidl artefacts.
+   * @param $build
+   * @param $artefacts
+   * @throws Exception
+   */
+  public function artefacts($build, $artefacts) {
+    if (empty($build)) {
+      throw new \Exception('Please provide a build.');
+    }
+    if (empty($artefacts)) {
+      throw new \Exception('Please provide a state.');
+    }
+    $username = $this->getUsername();
+    $password = $this->getPassword();
+    $url = $this->getUrl();
+
+    $client = new Client(['base_url' => $url]);
+    $client->patch('/node/' . $build, [
+      'headers' => [
+        'Content-type' => 'application/hal+json',
+      ],
+      'body' => json_encode(array(
+        '_links' => array(
+          'type' => array(
+            'href' => $url . '/rest/type/node/result',
+          )
+        ),
+        'field_artefacts' => $artefacts,
       )),
       'auth' => [$username, $password],
     ]);
@@ -133,54 +167,6 @@ class ResultsAPI {
       )),
       'auth' => [$username, $password],
     ]);
-  }
-
-  /**
-   * Calculate the "Summary" of the build and
-   */
-  public function upload($build, $artefacts) {
-    if (empty($build)) {
-      throw new Exception('Please provide a build.');
-    }
-    if (empty($artefacts)) {
-      throw new Exception('Please provide a artefacts.');
-    }
-    $username = $this->getUsername();
-    $password = $this->getPassword();
-    $url = $this->getUrl();
-
-    // Get all the artefacts.
-    $finder = new Finder();
-    $finder->files()->in($artefacts);
-
-    $files = array();
-    foreach ($finder as $file) {
-      $data = file_get_contents($file->getRealpath());
-      $data = base64_encode($data);
-
-      $files[] = array(
-        'value' => $data,
-        'filename' => $file->getFileInfo()->getFilename(),
-      );
-    }
-
-    $client = new Client(['base_url' => $url]);
-    $response = $client->patch('/node/' . $build, [
-      'headers' => [
-        'Content-type' => 'application/hal+json',
-      ],
-      'body' => json_encode(array(
-        '_links' => array(
-          'type' => array(
-            'href' => $url . '/rest/type/node/result',
-          )
-        ),
-        'field_artefacts' => $files,
-      )),
-      'auth' => [$username, $password],
-    ]);
-
-    print_r($response);
   }
 
   /**
