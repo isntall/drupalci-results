@@ -95,4 +95,7 @@ $ php bin/results-cli summary --artefacts="tests/assets" --build="13"
 
 # Upload the artefacts.
 $ php bin/results-cli upload --artefacts="tests/assets" --build="13"
+
+# Mark the build as "passed".
+$ php bin/results-cli progress --build="13" --state="4"
 ```
