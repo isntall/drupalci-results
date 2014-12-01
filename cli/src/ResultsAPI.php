@@ -2,10 +2,7 @@
 
 namespace DrupalCIResults;
 
-use Symfony\Component\Finder\Finder;
 use GuzzleHttp\Client;
-use Symfony\Component\Yaml\Yaml;
-use DrupalCIResults\Parser\ParserResults;
 
 /**
  * @file
@@ -32,17 +29,6 @@ class ResultsAPI {
    */
   protected $url = "";
 
-  /**
-   * The ID of the build on the results site.
-   * @var string
-   */
-  protected $buildId = "";
-
-  /**
-   * The path to the build artefacts.
-   * @var string
-   */
-  protected $artefactsDirectory = "";
 
   /**
    * Helper function to setup authentication.
@@ -112,7 +98,38 @@ class ResultsAPI {
             'href' => $url . '/rest/type/node/result',
           )
         ),
-        'field_state' => array(0 => array('target_id' => $state)),
+        'field_state' => array(0 => array('value' => $state)),
+      )),
+      'auth' => [$username, $password],
+    ]);
+  }
+
+  /**
+   * Updates the build with the following summary message.
+   */
+  public function summary($build, $summary) {
+    if (empty($build)) {
+      throw new Exception('Please provide a build.');
+    }
+    if (empty($summary)) {
+      throw new Exception('Please provide a summary message.');
+    }
+    $username = $this->getUsername();
+    $password = $this->getPassword();
+    $url = $this->getUrl();
+
+    $client = new Client(['base_url' => $url]);
+    $client->patch('/node/' . $build, [
+      'headers' => [
+        'Content-type' => 'application/hal+json',
+      ],
+      'body' => json_encode(array(
+        '_links' => array(
+          'type' => array(
+            'href' => $url . '/rest/type/node/result',
+          )
+        ),
+        'field_summary' => array(0 => array('value' => $summary)),
       )),
       'auth' => [$username, $password],
     ]);
@@ -121,44 +138,49 @@ class ResultsAPI {
   /**
    * Calculate the "Summary" of the build and
    */
-  public function upload($id, $artefacts) {
-    // @todo, Needs work.
-  }
+  public function upload($build, $artefacts) {
+    if (empty($build)) {
+      throw new Exception('Please provide a build.');
+    }
+    if (empty($artefacts)) {
+      throw new Exception('Please provide a artefacts.');
+    }
+    $username = $this->getUsername();
+    $password = $this->getPassword();
+    $url = $this->getUrl();
 
-  /**
-   * Build a "Summary" based on the artefacts.
-   */
-  public function summary($artefacts) {
-    // Build the results.
-    $summary = new ParserResults();
+    // Get all the artefacts.
     $finder = new Finder();
     $finder->files()->in($artefacts);
+
+    $files = array();
     foreach ($finder as $file) {
-      $this->parseFile($file, $summary);
+      $data = file_get_contents($file->getRealpath());
+      $data = base64_encode($data);
+
+      $files[] = array(
+        'value' => $data,
+        'filename' => $file->getFileInfo()->getFilename(),
+      );
     }
 
-    // Output the results.
-    return $summary->printResults();
-  }
+    $client = new Client(['base_url' => $url]);
+    $response = $client->patch('/node/' . $build, [
+      'headers' => [
+        'Content-type' => 'application/hal+json',
+      ],
+      'body' => json_encode(array(
+        '_links' => array(
+          'type' => array(
+            'href' => $url . '/rest/type/node/result',
+          )
+        ),
+        'field_artefacts' => $files,
+      )),
+      'auth' => [$username, $password],
+    ]);
 
-  /**
-   * Parse a file and append the results to the summary object.
-   * @param $file
-   * @param $summary
-   */
-  private function parseFile($file, &$summary) {
-    // Load up all the classes.
-    $parsers = Yaml::parse('parsers.yml');
-
-    // If the file is valid we append the results to the summary object.
-    foreach ($parsers as $parser) {
-      $path = $file->getRealpath();
-      $object = new $parser();
-      $object->setFile($path);
-      if ($object->validate($path)) {
-        $object->appendResults($summary);
-      }
-    }
+    print_r($response);
   }
 
   /**
@@ -210,34 +232,6 @@ class ResultsAPI {
    */
   public function setUsername($username) {
     $this->username = $username;
-  }
-
-  /**
-   * @return string
-   */
-  public function getArtefactsDirectory() {
-    return $this->artefactsDirectory;
-  }
-
-  /**
-   * @param string $artefactsDirectory
-   */
-  public function setArtefactsDirectory($artefactsDirectory) {
-    $this->artefactsDirectory = $artefactsDirectory;
-  }
-
-  /**
-   * @return string
-   */
-  public function getBuildId() {
-    return $this->buildId;
-  }
-
-  /**
-   * @param string $buildId
-   */
-  public function setBuildId($buildId) {
-    $this->buildId = $buildId;
   }
 
   /**

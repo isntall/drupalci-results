@@ -2,39 +2,29 @@
 
 namespace DrupalCIResults\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use DrupalCIResults\ResultsAPI;
 
 /**
- * @file
- * Command for creating new builds.
+ * Class CreateCommand
+ * @package DrupalCIResults\Command
  */
-
-class CreateCommand extends Command {
+class CreateCommand extends BaseCommand {
 
   protected function configure() {
     $command = $this->getName();
     $this->setName($command)
       ->setDescription('Create a new build on the results site.')
-      ->addOption('title', null, InputOption::VALUE_REQUIRED, 'The title of the new build to create.', 'admin')
-      ->addOption('username', null, InputOption::VALUE_REQUIRED, 'The username of the user with authorization to push to the results site.', 'admin')
-      ->addOption('password', null, InputOption::VALUE_REQUIRED, 'The password of the user with authorization to push to the results site.', 'admin')
-      ->addOption('url', null, InputOption::VALUE_REQUIRED, 'The URL of the results site.', 'http://results.drupalci.org');
+      ->addOption('title', null, InputOption::VALUE_REQUIRED, 'The title of the new build to create.', 'admin');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
-    $title = $input->getOption('title');
-    $username = $input->getOption('username');
-    $password = $input->getOption('password');
-    $url = $input->getOption('url');
+    parent::execute($input, $output);
 
-    $results = new ResultsAPI();
-    $results->setUrl($url);
-    $results->setAuth($username, $password);
-    $location = $results->create($title);
+    $title = $input->getOption('title');
+    $api = $this->getApi();
+    $location = $api->create($title);
 
     if ($location) {
       $output->writeln('<info>Build created: ' . $location . '</info>');
