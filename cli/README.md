@@ -86,16 +86,26 @@ $ php bin/results-cli states
 # Progress a build.
 $ php bin/results-cli progress --build="13" --state="2"
 
+Updated build to the state: 2
+
 # Generate a summary.
 $ ls -l tests/assets
 $ php bin/results-cli summary --artefacts="tests/assets"
 
+Assertions: 12, Failures: 113 and 1000 errors.
+
 # Submit a summary.
 $ php bin/results-cli summary --artefacts="tests/assets" --build="13"
+
+Assertions: 12, Failures: 113 and 1000 errors.
 
 # Upload the artefacts.
 $ php bin/results-cli upload --artefacts="tests/assets" --build="13"
 
+Successfully upload artefacts to build: 13
+
 # Mark the build as "passed".
 $ php bin/results-cli progress --build="13" --state="4"
+
+Updated build to the state: 4
 ```
