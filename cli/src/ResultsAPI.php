@@ -201,7 +201,7 @@ class ResultsAPI {
   private function getStateId($state) {
     $states = $this->states();
     if (empty($states[$state])) {
-      throw new Exception('Cannot find this states ID.');
+      throw new \Exception('Cannot find this states ID.');
     }
     return $states[$state]['id'];
   }

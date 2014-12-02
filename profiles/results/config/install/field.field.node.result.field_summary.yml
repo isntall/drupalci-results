@@ -14,7 +14,7 @@ required: false
 translatable: false
 default_value:
   -
-    value: ''
+    value: 'No summary has been provided at this time.'
 default_value_callback: ''
 settings: {  }
 third_party_settings: {  }

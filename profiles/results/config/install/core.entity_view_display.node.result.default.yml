@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   entity:
+    - field.field.node.result.body
     - field.field.node.result.field_artefacts
     - field.field.node.result.field_console
     - field.field.node.result.field_dispatcher
@@ -10,7 +11,6 @@ dependencies:
     - field.field.node.result.field_summary
     - node.type.result
   module:
-    - drupalci_link_button
     - entity_reference
     - link
     - user
@@ -35,9 +35,14 @@ content:
     third_party_settings: {  }
     label: inline
   field_artefacts:
-    type: file_link_button
+    type: link
     weight: 2
-    settings: {  }
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
     label: above
   field_console:

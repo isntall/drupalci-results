@@ -2,19 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - file
+    - link
     - node
 id: node.field_artefacts
 field_name: field_artefacts
 entity_type: node
-type: file
-settings:
-  display_field: false
-  display_default: false
-  uri_scheme: public
-  target_type: file
-  target_bundle: null
-module: file
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: -1
 translatable: true

@@ -9,16 +9,13 @@ field_name: field_artefacts
 entity_type: node
 bundle: result
 label: Artefacts
-description: 'The files generated from a build.'
+description: 'Links to the each build artefact stored on remote hosting.'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: artefacts
-  file_extensions: 'txt xml log sql html'
-  max_filesize: '20 MB'
-  description_field: false
-  handler: default
+  link_type: '17'
+  title: '1'
 third_party_settings: {  }
-field_type: file
+field_type: link

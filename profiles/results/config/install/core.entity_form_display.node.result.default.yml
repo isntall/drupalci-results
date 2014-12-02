@@ -12,7 +12,6 @@ dependencies:
     - node.type.result
   module:
     - entity_reference
-    - file
     - link
 id: node.result.default
 targetEntityType: node
@@ -56,12 +55,6 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_artefacts:
-    type: file_generic
-    weight: 5
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
   field_console:
     type: link_default
     weight: 6
@@ -69,6 +62,13 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_artefacts:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
 hidden:
   body: true
   uid: true
