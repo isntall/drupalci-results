@@ -42,6 +42,13 @@ GIT
     puppetlabs-stdlib (4.1.0)
 
 GIT
+  remote: git://github.com/treehouseagency/puppet-pear.git
+  ref: master
+  sha: d504379ce98e6477b720c37c2c5bdfdf26977dd9
+  specs:
+    treehouseagency-pear (0.0.1)
+
+GIT
   remote: git://github.com/willdurand/puppet-composer.git
   ref: v1.0.0
   sha: a6469384957b611058ac4b8446e7aa149ccbdc9a
@@ -55,5 +62,6 @@ DEPENDENCIES
   puppetlabs-concat (>= 0)
   puppetlabs-mysql (>= 0)
   puppetlabs-stdlib (>= 0)
+  treehouseagency-pear (>= 0)
   willdurand-composer (>= 0)
 
