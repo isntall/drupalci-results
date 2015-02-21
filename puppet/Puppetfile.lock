@@ -1,42 +1,45 @@
 FORGE
   remote: https://forgeapi.puppetlabs.com
   specs:
-    example42-puppi (2.1.10)
-    maestrodev-wget (1.5.6)
-    puppetlabs-concat (1.1.1)
-      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
-
-GIT
-  remote: git://github.com/example42/puppet-yum.git
-  ref: v2.1.17
-  sha: bc5af38cf09105733e5e57794cc82244c02e3114
-  specs:
-    example42-yum (2.1.16)
-      example42-puppi (> 2.0.0)
+    maestrodev-wget (1.5.7)
 
 GIT
   remote: git://github.com/puppetlabs/puppetlabs-apache.git
-  ref: d051887078363bb01a060f9c405f2875315d345c
-  sha: d051887078363bb01a060f9c405f2875315d345c
+  ref: 1.0.1
+  sha: 5a45cf170c3b9abb44cf4a9adade2752e2159b7f
   specs:
-    puppetlabs-apache (1.1.1)
-      puppetlabs-concat (>= 1.1.1)
-      puppetlabs-stdlib (>= 2.4.0)
+    puppetlabs-apache (1.0.1)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-apt.git
+  ref: 1.4.0
+  sha: 924e89289b93db60ef0f16a4e71579fa88e037a6
+  specs:
+    puppetlabs-apt (1.3.0)
+      puppetlabs-stdlib (>= 2.2.1)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-concat.git
+  ref: 1.1.0
+  sha: a50226b4ec5d6f2ba0df9e4f8a31df3e1160ff89
+  specs:
+    puppetlabs-concat (1.1.0)
+      puppetlabs-stdlib (>= 4.0.0)
 
 GIT
   remote: git://github.com/puppetlabs/puppetlabs-mysql.git
-  ref: 2.3.1
-  sha: c0f4372df06e89d416be68465c7d11ede645f692
+  ref: 2.1.0
+  sha: e303e361b7a1e7c1a808e92a02a8eacaaac3a498
   specs:
-    puppetlabs-mysql (2.3.1)
-      puppetlabs-stdlib (>= 3.2.0)
+    puppetlabs-mysql (2.1.0)
+      puppetlabs-stdlib (>= 2.2.1)
 
 GIT
   remote: git://github.com/puppetlabs/puppetlabs-stdlib.git
-  ref: 4.3.2
-  sha: da11903285aca54ac399d66cb453f5a8db3ac355
+  ref: 4.1.0
+  sha: 1ffd72daaaf21e71e762b6cd543043680bdb6694
   specs:
-    puppetlabs-stdlib (4.3.2)
+    puppetlabs-stdlib (4.1.0)
 
 GIT
   remote: git://github.com/willdurand/puppet-composer.git
@@ -47,8 +50,9 @@ GIT
       maestrodev-wget (>= 1.2.0)
 
 DEPENDENCIES
-  example42-yum (>= 0)
   puppetlabs-apache (>= 0)
+  puppetlabs-apt (>= 0)
+  puppetlabs-concat (>= 0)
   puppetlabs-mysql (>= 0)
   puppetlabs-stdlib (>= 0)
   willdurand-composer (>= 0)
