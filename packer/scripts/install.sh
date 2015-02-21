@@ -4,6 +4,6 @@
 # Description: Install the results site.
 
 mv /tmp/results /var/www/results
-cd /var/www/results && bin/phing build
+cd /var/www/results && phing build
 chown -R www-data:www-data /var/www/results
 
