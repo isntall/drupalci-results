@@ -2,8 +2,7 @@
 
 node default {
 
-  include yum::repo::remi
-  include yum::repo::remi_php56
+  include apt
   include mysql::server
   include mysql::server::mysqltuner
   include mysql::client
@@ -13,26 +12,19 @@ node default {
   # PHP.
   ##
 
-  package {[
-    'php-common',
-    'php-cli',
-    'perl-WWW-Curl',
-    'php-mcrypt',
-    'php-mysql',
-    'php-mbstring',
-    'php-pear',
-    'php-gd',
-    'php-xml',
-    'php-pdo',
-    'nmap',
-  ]:
-    ensure  => 'latest',
-    require => [
-      Class['yum::repo::remi'],
-      Class['yum::repo::remi_php56'],
-    ]
-  }
+  apt::ppa { 'ppa:ondrej/php5-oldstable': }
+  package { 'libapache2-mod-php5': ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
+  package { 'php5-gd':             ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
+  package { 'php5-mcrypt':         ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
+  package { 'php5-curl':           ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
+  package { 'php5-xdebug':         ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
 
+  include pear
+  pear::package { 'phing':
+    version    => '2.4.13',
+    repository => 'pear.phing.info',
+  }
+  
   class { 'composer':
     command_name => 'composer',
     target_dir   => '/usr/local/bin'
@@ -52,7 +44,7 @@ node default {
 
   apache::vhost { $fqdn:
     port           => '80',
-    docroot        => '/var/www/results/current/app',
+    docroot        => '/var/www/results/app',
     manage_docroot => false,
     priority       => '25',
     override       => [ 'ALL' ],
@@ -63,5 +55,15 @@ node default {
     password => 'drupal',
     host     => 'localhost',
   }
+
+  ##
+  # Misc.
+  ##
+
+  # Ensure we have an update to date set of packages.
+  exec { 'apt-update':
+    command => '/usr/bin/apt-get update'
+  }
+  Exec["apt-update"] -> Package <| |>
 
 }

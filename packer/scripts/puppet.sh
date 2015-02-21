@@ -4,6 +4,6 @@
 # Author:      Nick Schuch (nick@myschuch.com)
 # Description: Installs Puppet manifest.
 
-DIR='/tmp/puppet'
+DIR='/var/www/results/puppet'
 
 cd $DIR && sh scripts/provision.sh
