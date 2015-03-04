@@ -3,5 +3,7 @@
 # Name: install.sh
 # Description: Install the results site.
 
-cd /var/www/results && bin/phing build
+mv /tmp/results /var/www/results
+cd /var/www/results && phing build
+chown -R www-data:www-data /var/www/results
 

@@ -3,13 +3,14 @@
       "type":        "file",
 
       "source":      ".",
-      "destination": "/var/www/results"
+      "destination": "/tmp/results"
     },{
       "type":            "shell",
       "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "packer/scripts/base.sh",
-        "packer/scripts/puppet.sh"
+        "packer/scripts/puppet.sh",
+	"packer/scripts/install.sh"
       ]
     }
   ],
@@ -20,7 +21,7 @@
       "source_ami":    "ami-95d7b4af",
       "instance_type": "m3.medium",
       "ssh_username":  "ubuntu",
-      "ami_name":      "DrupalCI: Results {{timestamp}}"
+      "ami_name":      "DrupalCI Results {{timestamp}}"
     }
   ]
 }
