@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use DrupalCIResults\Command\CreateCommand;
+use DrupalCIResults\Command\ProgressCommand;
+use DrupalCIResults\Command\UploadCommand;
+use DrupalCIResults\Command\SummaryCommand;
+use DrupalCIResults\Command\StatesCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('ResultsCLI', '0.1-dev');
+$application->add(new CreateCommand("create"));
+$application->add(new ProgressCommand("progress"));
+$application->add(new UploadCommand("upload"));
+$application->add(new SummaryCommand("summary"));
+$application->add(new StatesCommand("states"));
+$application->run();
