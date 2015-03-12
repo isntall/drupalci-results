@@ -7,7 +7,9 @@
 
 namespace Drupal\results\Tests;
 
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\simpletest\WebTestBase;
+use Drupal\taxonomy\Entity\Vocabulary;
 
 /**
  * Tests results profile installation and functionality.
@@ -46,11 +48,25 @@ class ResultsTest extends WebTestBase {
       //  drupal_realpath($text_file->uri),
       //),
     );
+
+    // Imitate adding tagging information for results.
+    $tags = array(
+      $this->createTagTerm('8.x-dev'),
+      $this->createTagTerm('results-1.x-1.0'),
+    );
+    foreach ($tags as $tag) {
+      $edit['field_tags[]'][] = $tag->id();
+    }
     $this->drupalPostForm('node/add/result', $edit, t('Save'));
 
     // Check the build status page has all we need to show.
     $this->assertText('Tests: 5, Assertions: 12, Failures: 0 and 0 errors.');
     $this->assertText('Latest builds');
+
+    // Assert the tags were also added.
+    foreach ($tags as $tag) {
+      $this->assertText($tag->label());
+    }
 
     // Lets see if the build can be found on the front page with the new state.
     $this->drupalGet('');
@@ -67,4 +83,17 @@ class ResultsTest extends WebTestBase {
     $this->assertText('Building');
   }
 
+  /**
+   * Create a tag term for applying to a result.
+   */
+  protected function createTagTerm($name) {
+    $vocabulary = \Drupal::entityManager()->getStorage('taxonomy_vocabulary')->load('tags');
+    $term = \Drupal::entityManager()->getStorage('taxonomy_term')->create(array(
+      'name' => $name,
+      'vid' => $vocabulary->id(),
+      'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+    ));
+    $term->save();
+    return $term;
+  }
 }

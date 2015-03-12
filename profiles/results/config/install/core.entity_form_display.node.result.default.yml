@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.result.field_id
     - field.field.node.result.field_state
     - field.field.node.result.field_summary
+    - field.field.node.result.field_tags
     - node.type.result
   module:
     - entity_reference
@@ -69,6 +70,11 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+  field_tags:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
 hidden:
   body: true
   uid: true

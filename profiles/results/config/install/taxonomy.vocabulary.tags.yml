@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Tags
+vid: tags
+description: 'These are tags used to identify branches, commits, projects and other pertinent information.'
+hierarchy: 0
+weight: 0
+third_party_settings: {  }

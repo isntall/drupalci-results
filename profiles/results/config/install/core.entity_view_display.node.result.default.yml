@@ -9,10 +9,12 @@ dependencies:
     - field.field.node.result.field_id
     - field.field.node.result.field_state
     - field.field.node.result.field_summary
+    - field.field.node.result.field_tags
     - node.type.result
   module:
     - entity_reference
     - link
+    - taxonomy
     - user
 id: node.result.default
 label: null
@@ -56,6 +58,12 @@ content:
       target: ''
     third_party_settings: {  }
     label: above
+  field_tags:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: taxonomy_term_reference_link
 hidden:
   langcode: true
   field_dispatcher: true
