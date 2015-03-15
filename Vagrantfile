@@ -26,13 +26,13 @@ Vagrant.configure("2") do |config|
   if RUBY_PLATFORM =~ /linux|darwin/
     config.vm.synced_folder(
       ".",
-      "/var/www/results/current",
+      "/var/www/results",
       :nfs => true,
       :map_uid => 0,
       :map_gid => 0,
      )
   else
-    config.vm.synced_folder ".", "/var/www/results/current"
+    config.vm.synced_folder ".", "/var/www/results"
   end
 
   # Virtualbox provider configuration.
