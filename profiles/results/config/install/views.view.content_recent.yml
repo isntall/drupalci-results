@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - history
     - node
     - user
 id: content_recent
@@ -506,6 +505,7 @@ display:
       link_display: custom_url
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   block_1:
     display_plugin: block
     id: block_1
@@ -516,4 +516,5 @@ display:
       block_category: 'Lists (Views)'
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
     provider: views

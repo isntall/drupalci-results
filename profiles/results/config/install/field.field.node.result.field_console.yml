@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_console
     - node.type.result
 id: node.result.field_console

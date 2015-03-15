@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - history
     - node
     - user
 id: content
@@ -538,6 +537,7 @@ display:
           1: AND
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
     display_plugin: default
     display_title: Master
     id: default
@@ -560,6 +560,7 @@ display:
         weight: -10
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
     display_plugin: page
     display_title: Page
     id: page_1

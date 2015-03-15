@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - core.entity_view_mode.node.tiny
     - field.field.node.result.field_artefacts
     - field.field.node.result.field_console

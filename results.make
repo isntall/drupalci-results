@@ -12,11 +12,10 @@ api = 2
 ; Drupal core.
 projects[drupal][download][type] = git
 projects[drupal][download][url] = http://git.drupal.org/project/drupal.git
-projects[drupal][download][tag] = 8.0.0-beta2
-projects[drupal][patch][] = https://www.drupal.org/files/issues/2350507-22.patch
+projects[drupal][download][tag] = 8.0.0-beta6
 
 ; Contrib modules.
 
 projects[page_manager][version] = "1.0-alpha2"
 projects[restui][version] = "1.x-dev"
-projects[rest_api_doc][version] = "1.x-dev"
+projects[rest_api_doc][version] = "1.0-alpha3"

@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - core.entity_view_mode.taxonomy_term.full
     - field.field.taxonomy_term.states.field_machine
     - field.field.taxonomy_term.states.field_percentage

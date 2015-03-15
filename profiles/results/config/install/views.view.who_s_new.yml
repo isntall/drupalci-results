@@ -167,6 +167,7 @@ display:
       arguments: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   block_1:
     display_plugin: block
     id: block_1
@@ -179,3 +180,4 @@ display:
       block_category: User
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }

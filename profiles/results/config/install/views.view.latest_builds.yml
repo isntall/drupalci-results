@@ -1,8 +1,13 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.result
+    - system.menu.main
   module:
     - node
+    - user
 id: latest_builds
 label: 'Latest builds'
 module: views
@@ -153,43 +158,7 @@ display:
       arguments: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
-    provider: views
-    display_options:
-      field_langcode: '***LANGUAGE_language_content***'
-      field_langcode_add_to_query: null
-      path: latest
-      menu:
-        type: normal
-        title: 'Latest builds'
-        description: ''
-        parent: ''
-        weight: -50
-        context: '0'
-        menu_name: main
-  feed_1:
-    display_plugin: feed
-    id: feed_1
-    display_title: Feed
-    position: 2
-    provider: views
-    display_options:
-      field_langcode: '***LANGUAGE_language_content***'
-      field_langcode_add_to_query: null
-      pager:
-        type: some
-      style:
-        type: rss
-      row:
-        type: node_rss
-      path: latest.xml
-      displays:
-        default: default
-        page_1: page_1
+      display_extenders: {  }
   block_1:
     display_plugin: block
     id: block_1
@@ -227,3 +196,43 @@ display:
       field:
         title:
           link_to_node: 1
+      display_extenders: {  }
+  feed_1:
+    display_plugin: feed
+    id: feed_1
+    display_title: Feed
+    position: 2
+    provider: views
+    display_options:
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      pager:
+        type: some
+      style:
+        type: rss
+      row:
+        type: node_rss
+      path: latest.xml
+      displays:
+        default: default
+        page_1: page_1
+      display_extenders: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    provider: views
+    display_options:
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      path: latest
+      menu:
+        type: normal
+        title: 'Latest builds'
+        description: ''
+        parent: ''
+        weight: -50
+        context: '0'
+        menu_name: main
+      display_extenders: {  }

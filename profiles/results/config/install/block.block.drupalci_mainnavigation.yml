@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - system.menu.main
   module:
     - system
@@ -14,7 +14,6 @@ weight: -2
 provider: null
 plugin: 'system_menu_block:main'
 settings:
-  visibility: {  }
   id: 'system_menu_block:main'
   label: 'Main navigation'
   provider: system
@@ -24,3 +23,4 @@ settings:
     contexts: {  }
   level: 1
   depth: 0
+visibility: {  }

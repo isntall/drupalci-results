@@ -878,6 +878,7 @@ display:
           1: AND
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   page_1:
     display_plugin: page
     id: page_1
@@ -903,3 +904,4 @@ display:
         show_admin_links: false
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }

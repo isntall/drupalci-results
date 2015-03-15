@@ -1,8 +1,12 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.node.rss
+    - core.entity_view_mode.node.teaser
   module:
     - node
+    - user
 id: frontpage
 label: Frontpage
 module: node
@@ -241,19 +245,11 @@ display:
       arguments: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
     display_plugin: default
     display_title: Master
     id: default
     position: 0
-  page_1:
-    display_options:
-      path: node
-      field_langcode: '***LANGUAGE_language_content***'
-      field_langcode_add_to_query: null
-    display_plugin: page
-    display_title: Page
-    id: page_1
-    position: 1
   feed_1:
     display_plugin: feed
     id: feed_1
@@ -286,3 +282,14 @@ display:
         provider: views
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
+  page_1:
+    display_options:
+      path: node
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_extenders: {  }
+    display_plugin: page
+    display_title: Page
+    id: page_1
+    position: 1

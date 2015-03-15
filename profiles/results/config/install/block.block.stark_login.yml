@@ -12,7 +12,6 @@ weight: 0
 provider: null
 plugin: user_login_block
 settings:
-  visibility: {  }
   id: user_login_block
   label: 'User login'
   provider: user
@@ -20,3 +19,4 @@ settings:
   cache:
     max_age: 0
     contexts: {  }
+visibility: {  }

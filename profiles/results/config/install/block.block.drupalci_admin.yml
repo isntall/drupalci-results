@@ -1,7 +1,7 @@
 langcode: en
 status: false
 dependencies:
-  entity:
+  config:
     - system.menu.admin
   module:
     - system
@@ -14,7 +14,6 @@ weight: 1
 provider: null
 plugin: 'system_menu_block:admin'
 settings:
-  visibility: {  }
   id: 'system_menu_block:admin'
   label: Administration
   provider: system
@@ -24,3 +23,4 @@ settings:
     contexts: {  }
   level: 1
   depth: 0
+visibility: {  }

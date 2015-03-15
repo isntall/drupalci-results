@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - views.view.latest_builds
   module:
     - views
@@ -14,11 +14,6 @@ weight: -3
 provider: null
 plugin: 'views_block:latest_builds-block_1'
 settings:
-  visibility:
-    request_path:
-      id: request_path
-      pages: '<front>'
-      negate: true
   id: 'views_block:latest_builds-block_1'
   label: ''
   provider: views
@@ -31,3 +26,8 @@ settings:
   override:
     items_per_page: none
   views_label_checkbox: 0
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true

@@ -198,6 +198,7 @@ display:
       arguments: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   who_s_online_block:
     display_plugin: block
     id: who_s_online_block
@@ -209,3 +210,4 @@ display:
       display_description: 'A list of users that are currently logged in.'
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }

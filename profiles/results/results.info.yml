@@ -24,7 +24,6 @@ dependencies:
   - link
   - options
   - text
-  - page_manager
   - rest
   - serialization
   - hal

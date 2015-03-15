@@ -3,6 +3,7 @@ status: true
 dependencies:
   module:
     - file
+    - user
 id: files
 label: Files
 module: file
@@ -668,6 +669,7 @@ display:
       show_admin_links: true
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   page_1:
     display_plugin: page
     id: page_1
@@ -698,6 +700,7 @@ display:
           required: false
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   page_2:
     display_plugin: page
     id: page_2
@@ -1057,3 +1060,4 @@ display:
           required: true
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }

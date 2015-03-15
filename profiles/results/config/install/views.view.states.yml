@@ -1,13 +1,11 @@
 langcode: en
 status: true
 dependencies:
-  entity:
-    - field.storage.taxonomy_term.field_machine
-    - field.storage.taxonomy_term.field_percentage
+  config:
+    - taxonomy.vocabulary.states
   module:
-    - field
     - rest
-    - taxonomy
+    - user
 id: states
 label: States
 module: views
@@ -333,7 +331,7 @@ display:
           type: number_integer
           settings:
             thousand_separator: ''
-            prefix_suffix: 0
+            prefix_suffix: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -361,6 +359,7 @@ display:
       arguments: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   rest_export_1:
     display_plugin: rest_export
     id: rest_export_1
@@ -389,3 +388,4 @@ display:
               alias: ''
               raw_output: false
         provider: rest
+      display_extenders: {  }

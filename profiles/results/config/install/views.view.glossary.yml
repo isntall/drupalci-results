@@ -1,6 +1,8 @@
 langcode: en
 status: false
 dependencies:
+  config:
+    - system.menu.main
   module:
     - node
     - user
@@ -355,24 +357,7 @@ display:
             group_items: {  }
           plugin_id: language
           provider: views
-  page_1:
-    id: page_1
-    display_title: Page
-    display_plugin: page
-    position: 1
-    display_options:
-      query:
-        type: views_query
-        options: {  }
-      path: glossary
-      menu:
-        type: normal
-        title: Glossary
-        weight: 0
-        menu_name: main
-        parent: ''
-      field_langcode: '***LANGUAGE_language_content***'
-      field_langcode_add_to_query: null
+      display_extenders: {  }
   attachment_1:
     id: attachment_1
     display_title: Attachment
@@ -433,3 +418,23 @@ display:
       inherit_arguments: false
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      query:
+        type: views_query
+        options: {  }
+      path: glossary
+      menu:
+        type: normal
+        title: Glossary
+        weight: 0
+        menu_name: main
+        parent: ''
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_extenders: {  }
