@@ -27,7 +27,8 @@ class CreateCommand extends BaseCommand {
     $location = $api->create($title);
 
     if ($location) {
-      $output->writeln('<info>Build created: ' . $location . '</info>');
+      preg_match('/(\d+)\s*$/', $location, $match);
+      $output->writeln($match[1]);
     }
     else {
       $output->writeln('<error>Failed to create a new build.</error>');
