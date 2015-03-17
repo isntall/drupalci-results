@@ -5,6 +5,6 @@
 # Description: Install base packages and configuration.
 
 # Packages.
-apt-get -y update
+apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade
 apt-get -y install curl wget git vim make
-apt-get clean
+apt-get clean && apt-get -y autoremove
