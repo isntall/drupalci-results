@@ -12,13 +12,12 @@ node default {
   # PHP.
   ##
 
-  apt::ppa { 'ppa:ondrej/php5-oldstable': }
-  package { 'libapache2-mod-php5': ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
-  package { 'php5-gd':             ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
-  package { 'php5-mcrypt':         ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
-  package { 'php5-curl':           ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
-  package { 'php5-xdebug':         ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
-  package { 'php5-mysql':          ensure => 'installed', require => Apt::Ppa['ppa:ondrej/php5-oldstable'] }
+  package { 'libapache2-mod-php5': ensure => 'installed' }
+  package { 'php5-gd':             ensure => 'installed' }
+  package { 'php5-mcrypt':         ensure => 'installed' }
+  package { 'php5-curl':           ensure => 'installed' }
+  package { 'php5-xdebug':         ensure => 'installed' }
+  package { 'php5-mysql':          ensure => 'installed' }
 
   include pear
   pear::package { 'phing':
