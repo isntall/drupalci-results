@@ -8,9 +8,8 @@ DIR=`pwd`
 
 # Helper function to install packages.
 aptInstall() {
-  COUNT=`dpkg --get-selections $1 | grep -v deinstall | wc -l`
+  COUNT=$(dpkg --get-selections $1 | grep -v deinstall | wc -l)
   if [ "$COUNT" -eq "0" ]; then
-    apt-get -y update > /dev/null
     apt-get -y install $1
   fi
 }
@@ -25,7 +24,7 @@ gemInstall() {
 
 # Install the required packages.
 sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
-apt-get -y update
+apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade
 aptInstall curl
 aptInstall make
 aptInstall build-essential
@@ -34,6 +33,7 @@ aptInstall git
 aptInstall ruby1.9.1-dev
 aptInstall vim
 gemInstall bundler
+apt-get clean && apt-get -y autoremove
 
 # Install the required packages and provision.
 cd $DIR && bundle install --path vendor/bundle
